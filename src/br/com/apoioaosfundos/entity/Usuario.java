@@ -18,6 +18,12 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+/** 
+ * @author Lucas Copque
+ * @category entity
+ *
+ */
+
 @Getter
 @Setter
 @ToString
@@ -57,6 +63,6 @@ public class Usuario {
 	
 	@Enumerated(EnumType.ORDINAL)
 	@Column(name = "tipo_usuario")
-	private TipoUsuario userType;
+	private TipoUsuario tipoUsuario;
 
 }
