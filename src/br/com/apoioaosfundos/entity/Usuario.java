@@ -1,5 +1,6 @@
 package br.com.apoioaosfundos.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -18,7 +19,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-/** 
+/**
  * @author Lucas Copque
  * @category entity
  *
@@ -29,7 +30,9 @@ import lombok.ToString;
 @ToString
 @Entity
 @Table(name = "usuario")
-public class Usuario {
+public class Usuario implements Serializable {
+
+	private static final long serialVersionUID = 8567483040749149143L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -60,7 +63,7 @@ public class Usuario {
 
 	@Column(name = "telefone_celular")
 	private String telefoneCelular;
-	
+
 	@Enumerated(EnumType.ORDINAL)
 	@Column(name = "tipo_usuario")
 	private TipoUsuario tipoUsuario;
