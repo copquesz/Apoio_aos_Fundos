@@ -1,4 +1,4 @@
-package br.com.apoioaosfundos.utility;
+package br.com.apoioaosfundos.entity;
 
 import java.io.Serializable;
 
