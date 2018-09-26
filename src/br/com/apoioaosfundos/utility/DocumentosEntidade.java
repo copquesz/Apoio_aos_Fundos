@@ -17,8 +17,8 @@ import lombok.ToString;
 @Setter
 @ToString
 @Entity
-@Table(name = "documentos_conselho")
-public class DocumentosConselho implements Serializable {
+@Table(name = "documentos_entidade")
+public class DocumentosEntidade implements Serializable {
 
 	private static final long serialVersionUID = -3268759742443433996L;
 
@@ -53,5 +53,13 @@ public class DocumentosConselho implements Serializable {
 	// URL do Documento do Presidente
 	@Column(name = "url_documento_presidente", columnDefinition = "TEXT")
 	private String urlDocumentoPresidente;
+
+	// Arquivo referente ao Documento do Presidente.
+	@Transient
+	private MultipartFile diagnosticoSocial;
+
+	// URL do Documento do Presidente
+	@Column(name = "url_diagnostico_social", columnDefinition = "TEXT")
+	private String urlDiagnosticoSocial;
 
 }
