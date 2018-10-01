@@ -1,6 +1,8 @@
 package br.com.apoioaosfundos.service;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +27,10 @@ public class EntidadeService {
 
 	public Entidade carregar(String cnpj) {
 		return dao.carregar(cnpj);
+	}
+
+	public List<Entidade> listar() {
+		return (ArrayList<Entidade>) dao.listar();
 	}
 
 }
