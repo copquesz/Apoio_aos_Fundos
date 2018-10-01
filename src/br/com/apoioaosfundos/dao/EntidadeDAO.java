@@ -1,5 +1,8 @@
 package br.com.apoioaosfundos.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -29,6 +32,11 @@ public class EntidadeDAO {
 		Query query = em.createQuery("SELECT ent FROM Entidade ent WHERE ent.cnpj = :cnpj", Entidade.class);
 		query.setParameter("cnpj", cnpj);
 		return (Entidade) query.getSingleResult();
+	}
+	
+	public List<Entidade> listar(){
+		Query query = em.createQuery("SELECT ent FROM Entidade ORDER BY ent.id", Entidade.class);
+		return (ArrayList<Entidade>) query.getResultList();
 	}
 
 }
