@@ -1,5 +1,7 @@
 package br.com.apoioaosfundos.service;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,7 @@ public class EntidadeService {
 	private EntidadeDAO dao;
 
 	public Entidade adicionar(Entidade entidade) {
+		entidade.setDataCadastro(new Date());
 		return dao.adicionar(entidade);
 	}
 
