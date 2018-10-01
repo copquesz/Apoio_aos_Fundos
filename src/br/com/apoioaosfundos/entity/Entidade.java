@@ -59,6 +59,11 @@ public class Entidade implements Serializable {
 	private String website;
 
 	// Chave estrangeira que relaciona o Endereço com a Entidade.
+	@JoinColumn(name = "presidente_id")
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private Pessoa presidente;
+
+	// Chave estrangeira que relaciona o Endereço com a Entidade.
 	@JoinColumn(name = "endereco_id")
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Endereco endereco;
