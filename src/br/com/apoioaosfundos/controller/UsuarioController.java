@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,14 +15,39 @@ import br.com.apoioaosfundos.service.UsuarioService;
 
 @Controller
 public class UsuarioController {
-	
+
 	private UsuarioService us;
-	
+
 	@Autowired
 	public UsuarioController(UsuarioService us) {
 		this.us = us;
 	}
+
+	@RequestMapping(value = "/usuario/cadastro", method = RequestMethod.GET)
+	public String cadastroUsuarioGet(HttpServletRequest request, Model model) {
+
+		// Recebe o contexto da requisição.
+		String path = request.getContextPath();
+		model.addAttribute("path", path);
+
+		return "principal/cadastro-usuario";
+
+	}
 	
+	@Transactional
+	@RequestMapping(value = "/usuario/cadastro", method = RequestMethod.POST)
+	public String cadastroUsuarioPost(Usuario usuario, HttpServletRequest request, Model model) {
+
+		// Recebe o contexto da requisição.
+		String path = request.getContextPath();
+		model.addAttribute("path", path);
+		
+		us.adicionar(usuario);
+
+		return "principal/cadastro-usuario";
+
+	}
+
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String loginGet(HttpServletRequest request, Model model) {
 
@@ -52,7 +78,7 @@ public class UsuarioController {
 				return "painel-restrito/index";
 			}
 		}
-		
+
 		return "erro/login";
 	}
 

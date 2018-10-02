@@ -19,7 +19,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @Entity
-@Table(name = "documentos_entidade")
+@Table(name = "endereco")
 public class Endereco implements Serializable {
 
 	private static final long serialVersionUID = -8064366882376795074L;
