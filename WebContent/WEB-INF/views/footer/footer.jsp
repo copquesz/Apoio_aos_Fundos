@@ -1,0 +1,1 @@
+<footer><p>Template by: <a href="http://webthemez.com">WebThemez</a> | Powered by: <a href="https://www.apoioaosfundos.com.br">Apoio Aos Fundos</a><br>Plataforma Apoio aos Fundos <i class="far fa-copyright"></i> Todos os Direitos Reservados.</p></footer>
