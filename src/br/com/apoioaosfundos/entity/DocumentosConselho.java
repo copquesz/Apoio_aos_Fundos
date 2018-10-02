@@ -20,7 +20,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @Entity
-@Table(name = "documentos_fundo")
+@Table(name = "documentos_conselho")
 public class DocumentosConselho implements Serializable {
 
 	private static final long serialVersionUID = -3268759742443433996L;
