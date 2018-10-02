@@ -5,6 +5,16 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 version="2.0">
 	<persistence-unit name="apoio-aos-fundos">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>br.com.apoioaosfundos.entity.Conselho</class>	
+		<class>br.com.apoioaosfundos.entity.ContaBancaria</class>
+		<class>br.com.apoioaosfundos.entity.DocumentosConselho</class>
+		<class>br.com.apoioaosfundos.entity.DocumentosEntidade</class>
+		<class>br.com.apoioaosfundos.entity.DocumentosProjeto</class>
+		<class>br.com.apoioaosfundos.entity.Endereco</class>
+		<class>br.com.apoioaosfundos.entity.Entidade</class>
+		<class>br.com.apoioaosfundos.entity.Pessoa</class>
+		<class>br.com.apoioaosfundos.entity.Projeto</class>
+		<class>br.com.apoioaosfundos.entity.Usuario</class>
 		<properties>
 			<property name="hibernate.dialect"
 			value="org.hibernate.dialect.MySQL5InnoDBDialect" />
