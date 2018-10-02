@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.apoioaosfundos.dao.UsuarioDAO;
 import br.com.apoioaosfundos.entity.Usuario;
+import br.com.apoioaosfundos.enumerated.TipoUsuario;
 
 @Service
 public class UsuarioService {
@@ -16,6 +17,7 @@ public class UsuarioService {
 	
 	public Usuario adicionar(Usuario usuario) {
 		usuario.setDataCadastro(new Date());
+		usuario.setTipoUsuario(TipoUsuario.NORMAL);
 		return dao.adicionar(usuario);
 	}
 	
