@@ -13,12 +13,12 @@ import br.com.apoioaosfundos.enumerated.TipoUsuario;
 import br.com.apoioaosfundos.service.UsuarioService;
 
 @Controller
-public class LoginController {
+public class UsuarioController {
 	
 	private UsuarioService us;
 	
 	@Autowired
-	public LoginController(UsuarioService us) {
+	public UsuarioController(UsuarioService us) {
 		this.us = us;
 	}
 	
