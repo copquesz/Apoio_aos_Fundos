@@ -74,8 +74,8 @@ public class UsuarioController {
 		String path = request.getContextPath();
 		model.addAttribute("path", path);
 
-		if (us.login(usuario.getEmail(), usuario.getSenha())) {
-			usuario = us.carregar(usuario.getEmail());
+		if (us.login(usuario.getCpf(), usuario.getSenha())) {
+			usuario = us.carregar(usuario.getCpf());
 
 			if (usuario.getTipoUsuario().equals(TipoUsuario.NORMAL)) {
 				return "painel-usuario/index";
