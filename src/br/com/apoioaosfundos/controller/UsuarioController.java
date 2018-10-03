@@ -42,7 +42,13 @@ public class UsuarioController {
 		String path = request.getContextPath();
 		model.addAttribute("path", path);
 		
-		us.adicionar(usuario);
+		if(!us.isCadastrado(usuario.getCpf())) {
+			model.addAttribute("cpfCadastrado", false);
+			us.adicionar(usuario);
+		}
+		else {
+			model.addAttribute("cpfCadastrado", true);
+		}
 
 		return "principal/cadastro-usuario";
 

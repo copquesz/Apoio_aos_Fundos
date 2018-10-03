@@ -18,23 +18,33 @@ public class UsuarioDAO {
 		em.persist(usuario);
 		return carregar(usuario.getEmail());
 	}
-	
+
 	public Usuario carregar(Long id) {
 		Query query = em.createQuery("SELECT us FROM Usuario us WHERE us.id = :id", Usuario.class);
 		query.setParameter("id", id);
 		return (Usuario) query.getSingleResult();
 	}
 
-	public Usuario carregar(String email) {
-		Query query = em.createQuery("SELECT us FROM Usuario us WHERE us.email = :email", Usuario.class);
-		query.setParameter("email", email);
+	public Usuario carregar(String cpf) {
+		Query query = em.createQuery("SELECT us FROM Usuario us WHERE us.cpf = :cpf", Usuario.class);
+		query.setParameter("cpf", cpf);
 		return (Usuario) query.getSingleResult();
 	}
 
-	public boolean login(String email, String senha) {
-		Query query = em.createQuery("SELECT us FROM Usuario us WHERE us.email = :email AND us.senha = :senha",
+	public boolean isCadastrado(String cpf) {
+		Query query = em.createQuery("SELECT us FROM Usuario us WHERE us.cpf = :cpf", Usuario.class);
+		query.setParameter("cpf", cpf);
+		if (query.getResultList().isEmpty()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean login(String cpf, String senha) {
+		Query query = em.createQuery("SELECT us FROM Usuario us WHERE us.cpf = :cpf AND us.senha = :senha",
 				Usuario.class);
-		query.setParameter("email", email);
+		query.setParameter("cpf", cpf);
 		query.setParameter("senha", senha);
 
 		if (query.getResultList().isEmpty()) {

@@ -43,11 +43,9 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <c:if test="${erroCpf}">                                                           
+                        <c:if test="${cpfCadastrado}">                                               
                             <div class="alert alert-danger text-justify">
-                                <p><b>Erro!</b> </p>
-                                <hr>
-                                <p>CPF informado para acesso já cadastrado.</p>                                    
+                                <p>CPF já cadastrado!</p>                                    
                             </div>
                         </c:if>
                     </div>

@@ -25,12 +25,16 @@ public class UsuarioService {
 		return dao.carregar(id);
 	}
 	
-	public Usuario carregar(String email) {
-		return dao.carregar(email);
+	public Usuario carregar(String cpf) {
+		return dao.carregar(cpf);
 	}
 	
-	public boolean login(String email, String senha) {
-		return dao.login(email, senha);
+	public boolean isCadastrado(String cpf) {
+		return dao.isCadastrado(cpf);
+	}
+	
+	public boolean login(String cpf, String senha) {
+		return dao.login(cpf, senha);
 	}
 
 }
