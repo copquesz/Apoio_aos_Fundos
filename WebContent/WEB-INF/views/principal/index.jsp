@@ -91,8 +91,8 @@
                                         </div>
                                         <div class="col-md-6">                                                    
                                             <div class="form-group">
-                                                <label>E-mail:</label> 
-                                                <input type="email" class="form-control" name="email" required> 
+                                                <label>CPF:</label> 
+                                                <input type="text" class="form-control" name="cpf" required> 
                                             </div>
                                             <div class="form-group">
                                                 <label>Senha:</label> 

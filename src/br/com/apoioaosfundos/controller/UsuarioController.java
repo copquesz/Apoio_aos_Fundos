@@ -68,8 +68,6 @@ public class UsuarioController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String loginPost(Usuario usuario, HttpServletRequest request, Model model) {
 
-		System.out.println(usuario);
-
 		// Recebe o contexto da requisição.
 		String path = request.getContextPath();
 		model.addAttribute("path", path);
