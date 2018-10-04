@@ -52,6 +52,12 @@ public class Usuario implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "ultimo_acesso")
 	private Date ultimoAcesso;
+	
+	@Column(name = "nome")
+	private String nome;
+	
+	@Column(name = "sobrenome")
+	private String sobrenome;
 
 	@Column(name = "email")
 	private String email;
