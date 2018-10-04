@@ -81,7 +81,7 @@
                     <div class="col-md-6">
                         <div class="panel panel-default login-box" style="border: 1.5px solid rgb(2, 25, 42); min-height: 350px; box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);">
                             <div class="panel-body">                                            
-                                <form method="post" action="${path}/plataforma/login">
+                                <form method="post" action="${path}/login">
                                     <fieldset>
                                     <legend>
                                        ACESSE A PLATAFORMA
@@ -92,11 +92,11 @@
                                         <div class="col-md-6">                                                    
                                             <div class="form-group">
                                                 <label>CPF:</label> 
-                                                <input type="text" class="form-control" name="cpf" required> 
+                                                <input type="text" class="form-control" id="cpf" name="cpf" required> 
                                             </div>
                                             <div class="form-group">
                                                 <label>Senha:</label> 
-                                                <input type="password" class="form-control" name="password" required> 
+                                                <input type="password" class="form-control" id="senha" name="senha" required> 
                                             </div>
                                             <div class="form-group margin-25">
                                                 <button type="submit" class="btn btn-success">Entrar</button>
@@ -126,8 +126,12 @@
     <script src="${path}/assets/js/bootstrap.min.js"></script>
     <!-- Metis Menu Js -->
     <script src="${path}/assets/js/jquery.metisMenu.js"></script>
-      <!-- Custom Js -->
+    <!-- Custom Js -->
     <script src="${path}/assets/js/custom-scripts.js"></script>
+    <!-- Mask -->
+    <script type="text/javascript">
+        $("#cpf").mask("999.999.999-99");        
+    </script> 
     
    
 </body>
