@@ -43,7 +43,9 @@ public class UsuarioController {
 		String path = request.getContextPath();
 		model.addAttribute("path", path);
 
+		// Verifica se ja possui cadastro com o cpf passado como parâmetro
 		if (!us.isCadastrado(usuario.getCpf())) {
+			// Caso exista exibe uma mensagem de erro para o usuario
 			model.addAttribute("cpfCadastrado", false);
 			us.adicionar(usuario);
 		} else {
@@ -66,15 +68,20 @@ public class UsuarioController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String loginPost(Usuario usuario, HttpServletRequest request, Model model) {
+	public String loginPost(HttpSession session, Usuario usuario, HttpServletRequest request, Model model) {
 
 		// Recebe o contexto da requisição.
 		String path = request.getContextPath();
 		model.addAttribute("path", path);
 
+		// Verifica se o usuário existe no Banco de Dados
 		if (us.login(usuario.getCpf(), usuario.getSenha())) {
+			// Carrega o usuário informado no formulário
 			usuario = us.carregar(usuario.getCpf());
+			// Atribui o objeto para a sessão
+			session.setAttribute("usuario", usuario);
 
+			// Verifica qual o tipo de usuário e direciona para o seu respectivo painel
 			if (usuario.getTipoUsuario().equals(TipoUsuario.NORMAL)) {
 				return "painel-usuario/painel-usuario";
 			} else if (usuario.getTipoUsuario().equals(TipoUsuario.EMPRESA)
@@ -97,6 +104,33 @@ public class UsuarioController {
 		session.invalidate();
 
 		return "sucesso/sessao-finalizada";
+	}
+	
+	@RequestMapping(value = "/painel", method = RequestMethod.GET)
+	public String painelGet(HttpSession session, HttpServletRequest request, Model model) {
+
+		// Recebe o contexto da requisição
+		String path = request.getContextPath();
+		model.addAttribute("path", path);
+
+		// Carrega o usuário que está na sessão
+		Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+
+		return "painel-usuario/painel-usuario";
+	}
+
+	@RequestMapping(value = "/painel/meus-dados", method = RequestMethod.GET)
+	public String meusDadosGet(HttpSession session, HttpServletRequest request, Model model) {
+
+		// Recebe o contexto da requisição
+		String path = request.getContextPath();
+		model.addAttribute("path", path);
+
+		// Carrega o usuário que está na sessão
+		Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+		model.addAttribute("usuario", usuario);
+
+		return "painel-usuario/meus-dados";
 	}
 
 }
