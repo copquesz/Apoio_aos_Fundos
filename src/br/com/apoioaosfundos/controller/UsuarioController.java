@@ -1,6 +1,7 @@
 package br.com.apoioaosfundos.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,7 +34,7 @@ public class UsuarioController {
 		return "principal/cadastro-usuario";
 
 	}
-	
+
 	@Transactional
 	@RequestMapping(value = "/usuario/cadastro", method = RequestMethod.POST)
 	public String cadastroUsuarioPost(Usuario usuario, HttpServletRequest request, Model model) {
@@ -41,12 +42,11 @@ public class UsuarioController {
 		// Recebe o contexto da requisição.
 		String path = request.getContextPath();
 		model.addAttribute("path", path);
-		
-		if(!us.isCadastrado(usuario.getCpf())) {
+
+		if (!us.isCadastrado(usuario.getCpf())) {
 			model.addAttribute("cpfCadastrado", false);
 			us.adicionar(usuario);
-		}
-		else {
+		} else {
 			model.addAttribute("cpfCadastrado", true);
 		}
 
@@ -76,14 +76,27 @@ public class UsuarioController {
 			usuario = us.carregar(usuario.getCpf());
 
 			if (usuario.getTipoUsuario().equals(TipoUsuario.NORMAL)) {
-				return "painel-usuario/index";
+				return "painel-usuario/painel-usuario";
 			} else if (usuario.getTipoUsuario().equals(TipoUsuario.EMPRESA)
 					|| usuario.getTipoUsuario().equals(TipoUsuario.TECNICO)) {
-				return "painel-restrito/index";
+				return "painel-restrito/painel-restrito";
 			}
 		}
 
 		return "erro/login";
+	}
+
+	@RequestMapping(value = "/logoff", method = RequestMethod.GET)
+	public String logoffPost(HttpSession session, HttpServletRequest request, Model model) {
+
+		// Recebe o contexto da requisição
+		String path = request.getContextPath();
+		model.addAttribute("path", path);
+
+		// Invalida a sessão atual
+		session.invalidate();
+
+		return "sucesso/sessao-finalizada";
 	}
 
 }
