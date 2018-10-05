@@ -52,29 +52,34 @@ public class Conselho implements Serializable {
 	@Column(name = "type_fund")
 	private TipoFundo tipoFundo;
 
-	// Chave estrangeira que relaciona o Endereço com a Entidade.
+	// Chave estrangeira que relaciona o Conselho com o Secretário.
 	@JoinColumn(name = "secretario_id")
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Pessoa secretario;
 
-	// Chave estrangeira que relaciona o Endereço com a Entidade.
+	// Chave estrangeira que relaciona o Conselho com o Presidente.
 	@JoinColumn(name = "presidente_id")
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Pessoa presidente;
 
-	// Chave estrangeira que relaciona o Endereço com a Entidade.
+	// Chave estrangeira que relaciona o Conselho com o Endereço.
 	@JoinColumn(name = "endereco_id")
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Endereco endereco;
 
-	// Chave estrangeira que relaciona o Endereço com a Entidade.
+	// Chave estrangeira que relaciona o Conselho com a Conta Bancária do Fundo.
 	@JoinColumn(name = "conta_bancaria_id")
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private ContaBancaria contaBancaria;
 
-	// Chave estrangeira que relaciona o Endereço com a Entidade.
+	// Chave estrangeira que relaciona o Conselho com os Documentos enviados.
 	@JoinColumn(name = "documentos_conselho_id")
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private DocumentosConselho documentosConselho;
+
+	// Chave estrangeira que relaciona o Conselho com o Usuário que o cadastrou.
+	@JoinColumn(name = "usuario_id")
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private Usuario usuario;
 
 }
