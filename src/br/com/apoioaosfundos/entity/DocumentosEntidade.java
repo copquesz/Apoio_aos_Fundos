@@ -24,7 +24,7 @@ import lombok.ToString;
 public class DocumentosEntidade implements Serializable {
 
 	private static final long serialVersionUID = -3268759742443433996L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
@@ -61,13 +61,5 @@ public class DocumentosEntidade implements Serializable {
 	// URL do Documento do Presidente
 	@Column(name = "url_documento_presidente", columnDefinition = "TEXT")
 	private String urlDocumentoPresidente;
-
-	// Arquivo referente ao Documento do Presidente.
-	@Transient
-	private MultipartFile diagnosticoSocial;
-
-	// URL do Documento do Presidente
-	@Column(name = "url_diagnostico_social", columnDefinition = "TEXT")
-	private String urlDiagnosticoSocial;
 
 }

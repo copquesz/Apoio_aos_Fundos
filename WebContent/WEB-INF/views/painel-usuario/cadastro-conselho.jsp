@@ -36,7 +36,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            <small><b>CADASTRAR <span class="fas fa-angle-right"></span> ENTIDADE</b></small>
+                            <small><b>CADASTRAR <span class="fas fa-angle-right"></span> CONSELHO</b></small>
                         </h1>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="alert alert-info text-justify">                                
-                            Nesta etapa iremos solicitar alguns dados necessário para arquivarmos informações sobre a entidade.
+                            Nesta etapa iremos solicitar alguns dados necessário para arquivarmos informações sobre o conselho.
                             <br><br>
                             <strong>Observação: </strong>Caso você possua alguma dúvidas, existe ícones como este <i class="fas fa-info-circle"></i> que irão lhe auxiliar no preenchimento do formulário. Para isso, basta você passar o mouse em cima do ícone que você poderá visualizar dicas de como preencher o campo indicado.
                         </div>
@@ -76,7 +76,7 @@
 
                                     <fieldset style="margin-top: 70px;">
                                     <legend>
-                                        DADOS DA ENTIDADE
+                                        DADOS DO CONSELHO
                                     </legend>
                                         <div class="row">
                                             <div class="col-md-7">
@@ -248,18 +248,25 @@
                                     <fieldset style="margin-top: 70px;">
                                     <legend>DOCUMENTOS DO FUNDO</legend>
                                         <div class="row">
-                                            <div class="col-md-6 margin-25">
+                                            <div class="col-md-4 margin-25">
                                                 <center>
                                                     <label for="cartao-cnpj"><i class="far fa-credit-card" style="font-size: 78px;"></i><hr>Cartão CNPJ: <span class="input-required">*</span></label>
                                                     <br><small>Formatos aceitos: <b style="color: red;">pdf, jpg, jpeg, png.</b></small>
                                                     <input type="file" class="form-control" id="cartao-cnpj" name="documentosConselho.cartaoCnpj" required onchange="validaImgPdf(this)">
                                                 </center>
                                             </div>
-                                            <div class="col-md-6 margin-25">
+                                            <div class="col-md-4 margin-25">
                                                 <center>
                                                     <label for="declaracao-bancaria"><i class="fas fa-university" style="font-size: 78px;"></i><hr>Declaração de Dados Bancários: <span class="input-required">*</span></label>
                                                     <br><small>Formatos aceitos: <b style="color: red;">pdf, jpg, jpeg, png, bmp.</b></small>
                                                     <input type="file" class="form-control" id="declaracao-bancaria" name="documentosConselho.declaracaoBancaria" required onchange="validaImgPdf(this)">
+                                                </center>
+                                            </div>
+                                            <div class="col-md-4 margin-25">
+                                                <center>
+                                                    <label for="diagnostico-social"><i class="fas fa-clipboard-list" style="font-size: 78px;"></i><hr>Diagnóstico Social: <span class="input-required">*</span></label>
+                                                    <br><small>Formatos aceitos: <b style="color: red;">pdf, jpg, jpeg, png, bmp.</b></small>
+                                                    <input type="file" class="form-control" id="diagnostico-social" name="documentosConselho.diagnosticoSocial" required onchange="validaImgPdf(this)">
                                                 </center>
                                             </div>
                                         </div>                                                    

@@ -38,7 +38,7 @@ public class ConselhoController {
 		TipoFundo[] listaTipoFundo = TipoFundo.values();
 		model.addAttribute("listaTipoFundo", listaTipoFundo);
 
-		return "painel-usuario/cadastro-associacao";
+		return "painel-usuario/cadastro-conselho";
 	}
 
 	@Transactional
