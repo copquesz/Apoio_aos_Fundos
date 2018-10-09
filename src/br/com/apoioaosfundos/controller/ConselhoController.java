@@ -52,7 +52,7 @@ public class ConselhoController {
 		usuario = (Usuario) request.getSession().getAttribute("usuario");
 		conselho = cs.adicionar(conselho, usuario);
 
-		String url = "documentos/conselhos" + conselho.getTipoFundo().getDescricao() + "/" + conselho.getRazaoSocial();
+		String url = "documentos/conselhos/" + conselho.getTipoFundo().getDescricao() + "/" + conselho.getRazaoSocial();
 		FileUpload.upload(request, conselho.getDocumentosConselho().getCartaoCnpj(),
 				conselho.getDocumentosConselho().getCartaoCnpj().getOriginalFilename(), url);
 		FileUpload.upload(request, conselho.getDocumentosConselho().getDeclaracaoBancaria(),

@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import br.com.apoioaosfundos.dao.EntidadeDAO;
 import br.com.apoioaosfundos.entity.Entidade;
+import br.com.apoioaosfundos.entity.Usuario;
+import br.com.apoioaosfundos.enumerated.TipoPessoa;
 
 @Service
 public class EntidadeService {
@@ -16,8 +18,11 @@ public class EntidadeService {
 	@Autowired
 	private EntidadeDAO dao;
 
-	public Entidade adicionar(Entidade entidade) {
+	public Entidade adicionar(Entidade entidade, Usuario usuario) {
 		entidade.setDataCadastro(new Date());
+		
+		entidade.getPresidente().setTipoPessoa(TipoPessoa.PRESIDENTE);
+		
 		return dao.adicionar(entidade);
 	}
 
