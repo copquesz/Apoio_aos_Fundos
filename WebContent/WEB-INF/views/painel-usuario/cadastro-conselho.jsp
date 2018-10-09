@@ -252,21 +252,21 @@
                                                 <center>
                                                     <label for="cartao-cnpj"><i class="far fa-credit-card" style="font-size: 78px;"></i><hr>Cartão CNPJ: <span class="input-required">*</span></label>
                                                     <br><small>Formatos aceitos: <b style="color: red;">pdf, jpg, jpeg, png.</b></small>
-                                                    <input type="file" class="form-control" id="cartao-cnpj" name="documentosConselho.cartaoCnpj" required onchange="validaImgPdf(this)">
+                                                    <input type="file" class="form-control" id="cartao-cnpj" name="documentosConselho.cartaoCnpj" required onchange="validaImgPdf(this, this.id)">
                                                 </center>
                                             </div>
                                             <div class="col-md-4 margin-25">
                                                 <center>
                                                     <label for="declaracao-bancaria"><i class="fas fa-university" style="font-size: 78px;"></i><hr>Declaração de Dados Bancários: <span class="input-required">*</span></label>
                                                     <br><small>Formatos aceitos: <b style="color: red;">pdf, jpg, jpeg, png, bmp.</b></small>
-                                                    <input type="file" class="form-control" id="declaracao-bancaria" name="documentosConselho.declaracaoBancaria" required onchange="validaImgPdf(this)">
+                                                    <input type="file" class="form-control" id="declaracao-bancaria" name="documentosConselho.declaracaoBancaria" required onchange="validaImgPdf(this, this.id)">
                                                 </center>
                                             </div>
                                             <div class="col-md-4 margin-25">
                                                 <center>
                                                     <label for="diagnostico-social"><i class="fas fa-clipboard-list" style="font-size: 78px;"></i><hr>Diagnóstico Social: <span class="input-required">*</span></label>
                                                     <br><small>Formatos aceitos: <b style="color: red;">pdf, jpg, jpeg, png, bmp.</b></small>
-                                                    <input type="file" class="form-control" id="diagnostico-social" name="documentosConselho.diagnosticoSocial" required onchange="validaImgPdf(this)">
+                                                    <input type="file" class="form-control" id="diagnostico-social" name="documentosConselho.diagnosticoSocial" required onchange="validaImgPdf(this, this.id)">
                                                 </center>
                                             </div>
                                         </div>                                                    
