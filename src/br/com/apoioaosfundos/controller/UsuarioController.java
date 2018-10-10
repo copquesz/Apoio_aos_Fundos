@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.com.apoioaosfundos.entity.Conselho;
+import br.com.apoioaosfundos.entity.Entidade;
 import br.com.apoioaosfundos.entity.Usuario;
 import br.com.apoioaosfundos.enumerated.TipoUsuario;
 import br.com.apoioaosfundos.service.ConselhoService;
+import br.com.apoioaosfundos.service.EntidadeService;
 import br.com.apoioaosfundos.service.UsuarioService;
 
 @Controller
@@ -24,11 +26,13 @@ public class UsuarioController {
 
 	private UsuarioService us;
 	private ConselhoService cs;
+	private EntidadeService es;
 
 	@Autowired
-	public UsuarioController(UsuarioService us, ConselhoService cs) {
+	public UsuarioController(UsuarioService us, ConselhoService cs, EntidadeService es) {
 		this.us = us;
 		this.cs = cs;
+		this.es = es;
 	}
 
 	@RequestMapping(value = "/usuario/cadastro", method = RequestMethod.GET)
@@ -95,6 +99,11 @@ public class UsuarioController {
 				List<Conselho> conselhosUsuario = new ArrayList<Conselho>();
 				conselhosUsuario = cs.listar(usuario);
 				model.addAttribute("conselhosUsuario", conselhosUsuario);
+				
+				// Carrega a lista de conselhos cadastrados pelo usuário
+				List<Entidade> entidadesUsuario = new ArrayList<Entidade>();
+				entidadesUsuario = es.listar(usuario);
+				model.addAttribute("entidadesUsuario", entidadesUsuario);
 
 				return "painel-usuario/painel-usuario";
 			} else if (usuario.getTipoUsuario().equals(TipoUsuario.EMPRESA)
@@ -139,6 +148,11 @@ public class UsuarioController {
 			List<Conselho> conselhosUsuario = new ArrayList<Conselho>();
 			conselhosUsuario = cs.listar(usuario);
 			model.addAttribute("conselhosUsuario", conselhosUsuario);
+			
+			// Carrega a lista de conselhos cadastrados pelo usuário
+			List<Entidade> entidadesUsuario = new ArrayList<Entidade>();
+			entidadesUsuario = es.listar(usuario);
+			model.addAttribute("entidadesUsuario", entidadesUsuario);
 
 			url = "painel-usuario/painel-usuario";
 

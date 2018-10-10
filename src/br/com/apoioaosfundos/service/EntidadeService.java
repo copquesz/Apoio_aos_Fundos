@@ -20,9 +20,7 @@ public class EntidadeService {
 
 	public Entidade adicionar(Entidade entidade, Usuario usuario) {
 		entidade.setDataCadastro(new Date());
-		
 		entidade.getPresidente().setTipoPessoa(TipoPessoa.PRESIDENTE);
-		
 		return dao.adicionar(entidade);
 	}
 
@@ -34,8 +32,8 @@ public class EntidadeService {
 		return dao.carregar(cnpj);
 	}
 
-	public List<Entidade> listar() {
-		return (ArrayList<Entidade>) dao.listar();
+	public List<Entidade> listar(Usuario usuario) {
+		return dao.listar(usuario);
 	}
 
 }
