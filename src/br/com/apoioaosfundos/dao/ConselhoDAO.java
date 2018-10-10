@@ -1,6 +1,5 @@
 package br.com.apoioaosfundos.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -11,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.apoioaosfundos.entity.Conselho;
 import br.com.apoioaosfundos.entity.Usuario;
+import br.com.apoioaosfundos.enumerated.TipoFundo;
 
 @Service
 public class ConselhoDAO {
@@ -38,6 +38,12 @@ public class ConselhoDAO {
 	public List<Conselho> listar(Usuario usuario){
 		Query query = em.createQuery("SELECT cs FROM Conselho cs WHERE cs.usuario = :usuario", Conselho.class);
 		query.setParameter("usuario", usuario);
+		return query.getResultList();
+	}
+	
+	public List<Conselho> listar(TipoFundo tipoFundo){
+		Query query = em.createQuery("SELECT cs FROM Conselho cs WHERE cs.tipoFundo = :tipoFundo", Conselho.class);
+		query.setParameter("tipoFundo", tipoFundo);
 		return query.getResultList();
 	}
 
