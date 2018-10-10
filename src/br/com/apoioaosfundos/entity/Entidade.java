@@ -73,4 +73,9 @@ public class Entidade implements Serializable {
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private DocumentosEntidade documentosEntidade;
 
+	// Chave estrangeira que relaciona o Conselho com o Usuário que o cadastrou.
+	@JoinColumn(name = "usuario_id")
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private Usuario usuario;
+
 }
