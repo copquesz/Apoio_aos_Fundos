@@ -1,5 +1,8 @@
 package br.com.apoioaosfundos.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -7,6 +10,7 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Service;
 
 import br.com.apoioaosfundos.entity.Conselho;
+import br.com.apoioaosfundos.entity.Usuario;
 
 @Service
 public class ConselhoDAO {
@@ -29,6 +33,12 @@ public class ConselhoDAO {
 		Query query = em.createQuery("SELECT cs FROM Conselho cs WHERE cs.cnpj = :cnpj", Conselho.class);
 		query.setParameter("cnpj", cnpj);
 		return (Conselho) query.getSingleResult();
+	}
+	
+	public List<Conselho> listar(Usuario usuario){
+		Query query = em.createQuery("SELECT cs FROM Conselho cs WHERE cs.usuario = :usuario", Conselho.class);
+		query.setParameter("usuario", usuario);
+		return query.getResultList();
 	}
 
 }

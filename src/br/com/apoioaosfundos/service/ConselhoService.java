@@ -1,8 +1,7 @@
 package br.com.apoioaosfundos.service;
 
 import java.util.Date;
-
-import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +10,6 @@ import br.com.apoioaosfundos.dao.ConselhoDAO;
 import br.com.apoioaosfundos.entity.Conselho;
 import br.com.apoioaosfundos.entity.Usuario;
 import br.com.apoioaosfundos.enumerated.TipoPessoa;
-import br.com.apoioaosfundos.utility.FileUpload;
 
 @Service
 public class ConselhoService {
@@ -36,6 +34,10 @@ public class ConselhoService {
 
 	public Conselho carregar(String cnpj) {
 		return dao.carregar(cnpj);
+	}
+	
+	public List<Conselho> listar(Usuario usuario){
+		return dao.listar(usuario);
 	}
 
 }

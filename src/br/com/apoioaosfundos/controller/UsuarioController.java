@@ -1,5 +1,8 @@
 package br.com.apoioaosfundos.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -10,18 +13,22 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import br.com.apoioaosfundos.entity.Conselho;
 import br.com.apoioaosfundos.entity.Usuario;
 import br.com.apoioaosfundos.enumerated.TipoUsuario;
+import br.com.apoioaosfundos.service.ConselhoService;
 import br.com.apoioaosfundos.service.UsuarioService;
 
 @Controller
 public class UsuarioController {
 
 	private UsuarioService us;
+	private ConselhoService cs;
 
 	@Autowired
-	public UsuarioController(UsuarioService us) {
+	public UsuarioController(UsuarioService us, ConselhoService cs) {
 		this.us = us;
+		this.cs = cs;
 	}
 
 	@RequestMapping(value = "/usuario/cadastro", method = RequestMethod.GET)
@@ -83,6 +90,12 @@ public class UsuarioController {
 
 			// Verifica qual o tipo de usuário e direciona para o seu respectivo painel
 			if (usuario.getTipoUsuario().equals(TipoUsuario.NORMAL)) {
+
+				// Carrega a lista de conselhos cadastrados pelo usuário
+				List<Conselho> conselhosUsuario = new ArrayList<Conselho>();
+				conselhosUsuario = cs.listar(usuario);
+				model.addAttribute("conselhosUsuario", conselhosUsuario);
+
 				return "painel-usuario/painel-usuario";
 			} else if (usuario.getTipoUsuario().equals(TipoUsuario.EMPRESA)
 					|| usuario.getTipoUsuario().equals(TipoUsuario.TECNICO)) {
@@ -105,9 +118,12 @@ public class UsuarioController {
 
 		return "sucesso/sessao-finalizada";
 	}
-	
+
 	@RequestMapping(value = "/painel", method = RequestMethod.GET)
 	public String painelGet(HttpSession session, HttpServletRequest request, Model model) {
+
+		// Página de Retorno
+		String url = null;
 
 		// Recebe o contexto da requisição
 		String path = request.getContextPath();
@@ -116,7 +132,24 @@ public class UsuarioController {
 		// Carrega o usuário que está na sessão
 		Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
 
-		return "painel-usuario/painel-usuario";
+		// Verifica qual o tipo de usuário e direciona para o seu respectivo painel
+		if (usuario.getTipoUsuario().equals(TipoUsuario.NORMAL)) {
+
+			// Carrega a lista de conselhos cadastrados pelo usuário
+			List<Conselho> conselhosUsuario = new ArrayList<Conselho>();
+			conselhosUsuario = cs.listar(usuario);
+			model.addAttribute("conselhosUsuario", conselhosUsuario);
+
+			url = "painel-usuario/painel-usuario";
+
+		} else if (usuario.getTipoUsuario().equals(TipoUsuario.EMPRESA)
+				|| usuario.getTipoUsuario().equals(TipoUsuario.TECNICO)) {
+
+			url = "painel-restrito/painel-restrito";
+		}
+
+		return url;
+
 	}
 
 	@RequestMapping(value = "/painel/meus-dados", method = RequestMethod.GET)

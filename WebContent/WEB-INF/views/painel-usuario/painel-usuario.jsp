@@ -10,7 +10,7 @@
     <!-- Bootstrap Styles-->
     <link href="${path}/assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FontAwesome Styles-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <!-- Custom Styles-->
     <link href="${path}/assets/css/custom-styles.css" rel="stylesheet" />
     <link href="${path}/assets/css/style.css" rel="stylesheet" />
@@ -23,6 +23,7 @@
 
         <!-- Import Menu -->
         <c:import url="../menu/menu-usuario.jsp" />
+        <c:import url="../modals/modal-meus-registros.jsp" />
 
         <div id="page-wrapper" >
             <div id="page-inner">
@@ -30,71 +31,91 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            <small><b>PAINEL DE CONTROLE</b></small>
+                            <small><b>CADASTRAR</b></small>
                         </h1>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <center>Cadastrar Conselho</center>
+                            </div>
+                            <div class="panel-body">
+                                <a href="${path}/painel/conselho/cadastrar"><center><i class="fas fa-landmark" style="font-size: 100px;"></i></center></a>
+                            </div>
+                            <div class="panel-footer">
+                                <center><small>Cadastre o Conselho e os dados do Fundo.</small></center>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <center>Cadastrar Entidade</center>
+                            </div>
+                            <div class="panel-body">
+                                <a href="${path}/painel/entidade/cadastrar"><center><i class="fas fa-building" style="font-size: 100px;"></i></center></a>
+                            </div>
+                            <div class="panel-footer">
+                                <center><small>Cadastre a Entidade Executora.</small></center>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <center>Cadastrar Projeto</center>
                             </div>
                             <div class="panel-body">
-                                <a href="${path}/painel/proposta"><center><i class="fas fa-plus-square" style="font-size: 100px;"></i></center></a>
+                                <a href="${path}/painel/proposta"><center><i class="fab fa-accusoft" style="font-size: 100px;"></i></center></a>
                             </div>
                             <div class="panel-footer">
-                                <center><small>Realize o cadastro do projeto.</small></center>
-                            </div>
-                        </div>
-                    </div>
-
-                     <div class="col-md-6">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <center>Visualizar Projeto</center>
-                            </div>
-                            <div class="panel-body">
-                                <c:if test="${hasProjeto}">
-                                    <a href='${path}/painel/propostas'><center><i class="far fa-list-alt" style="font-size: 100px;"></i></center></a>
-                                </c:if>
-                                <c:if test="${not hasProjeto}">
-                                    <a href="#" data-toggle="modal" data-target="#projeto-indisponivel"><center><i class="far fa-list-alt" style="font-size: 100px; color: grey; pointer-events: none; cursor: default;"></i></center></a>
-                                </c:if>
-                            </div>
-                            <div class="panel-footer">
-                                <center><small>Visualize o projeto cadastrado.</small></center>
+                                <center><small>Cadastre o Projeto.</small></center>
                             </div>
                         </div>
                     </div>
 
                 </div> <!-- /. ROW PANEL  -->
 
+                <hr>
                 <div class="row">
-                     <div class="col-md-6">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                            <small><b>VISUALIZAR</b></small>
+                        </h1>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-4">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <center>Visualizar Cadastro Institucional</center>
+                                <center>Meus Registros</center>
                             </div>
                             <div class="panel-body">
-                                <a href='${path}/painel/entidades'><center><i class="fas fa-users" style="font-size: 100px;"></i></center>
+                                <a href='#' data-toggle="modal" data-target="#meus-registros"><center><i class="far fa-list-alt" style="font-size: 100px;"></i></center></a>
                             </div>
                             <div class="panel-footer">
-                                <center><small>Acesse as informações cadastradas da Entidade Executora.</small></center></a>
+                                <center><small>Visualize os cadastros realizados.</small></center>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+
+                    <div class="col-md-4">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <center>Visualizar Dados Fundo</center>
+                                <center>Meus Dados</center>
                             </div>
                             <div class="panel-body">
-                                <a href='${path}/painel/fundos'><center><i class="fas fa-money-check-alt" style="font-size: 100px;"></i></center></a>
+                                <a href='${path}/painel/meus-dados'><center><i class="fas fa-user-cog" style="font-size: 100px;"></i></center>
                             </div>
                             <div class="panel-footer">
-                                <center><small>Acesse as informações do Fundo escolhido pela Entidade.</small></center>
+                                <center><small>Acesse as informações cadastradas do Usuário.</small></center></a>
                             </div>
                         </div>
                     </div>
