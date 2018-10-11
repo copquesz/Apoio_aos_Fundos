@@ -34,6 +34,10 @@ public class ConselhoService {
 	public Conselho carregar(String cnpj) {
 		return dao.carregar(cnpj);
 	}
+	
+	public Conselho atualizar(Conselho conselho) {
+		return dao.atualizar(conselho);
+	}
 
 	public List<Conselho> listar(Usuario usuario) {
 		return dao.listar(usuario);

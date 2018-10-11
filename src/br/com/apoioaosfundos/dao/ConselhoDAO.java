@@ -35,6 +35,11 @@ public class ConselhoDAO {
 		return (Conselho) query.getSingleResult();
 	}
 	
+	public Conselho atualizar(Conselho conselho) {
+		return em.merge(conselho);
+	}
+
+	
 	public List<Conselho> listar(Usuario usuario){
 		Query query = em.createQuery("SELECT cs FROM Conselho cs WHERE cs.usuario = :usuario", Conselho.class);
 		query.setParameter("usuario", usuario);
