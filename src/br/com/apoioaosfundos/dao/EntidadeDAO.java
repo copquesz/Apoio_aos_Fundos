@@ -1,6 +1,5 @@
 package br.com.apoioaosfundos.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -10,7 +9,6 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Service;
 
 import br.com.apoioaosfundos.entity.Entidade;
-import br.com.apoioaosfundos.entity.Usuario;
 import br.com.apoioaosfundos.entity.Usuario;
 
 @Service
@@ -39,7 +37,13 @@ public class EntidadeDAO {
 		return (Entidade) query.getSingleResult();
 	}
 
-	// Busca todas as Entidades no Banco de Dados, passando o USUARIO que cadastrou como parâmetro
+	// Atualiza o objeto no Banco de Dados
+	public Entidade atualizar(Entidade entidade) {
+		return em.merge(entidade);
+	}
+
+	// Busca todas as Entidades no Banco de Dados, passando o USUARIO que cadastrou
+	// como parâmetro
 	public List<Entidade> listar(Usuario usuario) {
 		Query query = em.createQuery("SELECT ent FROM Entidade ent WHERE ent.usuario = :usuario", Entidade.class);
 		query.setParameter("usuario", usuario);

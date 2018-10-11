@@ -31,6 +31,10 @@ public class EntidadeService {
 	public Entidade carregar(String cnpj) {
 		return dao.carregar(cnpj);
 	}
+	
+	public Entidade atualizar(Entidade entidade) {
+		return dao.atualizar(entidade);
+	}
 
 	public List<Entidade> listar(Usuario usuario) {
 		return dao.listar(usuario);

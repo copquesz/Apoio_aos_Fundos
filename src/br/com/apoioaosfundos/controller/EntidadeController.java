@@ -63,11 +63,22 @@ public class EntidadeController {
 		entidade = es.adicionar(entidade, usuario);
 
 		String url = "documentos/entidades/" + entidade.getRazaoSocial();
-		FileUpload.upload(request, entidade.getDocumentosEntidade().getCartaoCnpj(), entidade.getDocumentosEntidade().getCartaoCnpj().getOriginalFilename(), url);
-		FileUpload.upload(request, entidade.getDocumentosEntidade().getAtaEleicao(), entidade.getDocumentosEntidade().getAtaEleicao().getOriginalFilename(), url);
-		FileUpload.upload(request, entidade.getDocumentosEntidade().getDocumentoPresidente(), entidade.getDocumentosEntidade().getDocumentoPresidente().getOriginalFilename(), url);
-		FileUpload.upload(request, entidade.getDocumentosEntidade().getEstatutoSocial(), entidade.getDocumentosEntidade().getEstatutoSocial().getOriginalFilename(), url);
+		
+		// Faz upload do Cartão CNPJ e seta a URL gerada
+		entidade.getDocumentosEntidade().setUrlCartaoCnpj(FileUpload.upload(request, entidade.getDocumentosEntidade().getCartaoCnpj(), entidade.getDocumentosEntidade().getCartaoCnpj().getOriginalFilename(), url));
+		
+		// Faz upload da Ata de Eleição e seta a URL gerada
+		entidade.getDocumentosEntidade().setUrlAtaEleicao(FileUpload.upload(request, entidade.getDocumentosEntidade().getAtaEleicao(), entidade.getDocumentosEntidade().getAtaEleicao().getOriginalFilename(), url));
+		
+		// Faz upload do Documento do Presidente e seta a URL gerada
+		entidade.getDocumentosEntidade().setUrlDocumentoPresidente(FileUpload.upload(request, entidade.getDocumentosEntidade().getDocumentoPresidente(), entidade.getDocumentosEntidade().getDocumentoPresidente().getOriginalFilename(), url));
+		
+		// Faz upload do Estatuto Social e seta a URL gerada
+		entidade.getDocumentosEntidade().setUrlEstatutoSocial(FileUpload.upload(request, entidade.getDocumentosEntidade().getEstatutoSocial(), entidade.getDocumentosEntidade().getEstatutoSocial().getOriginalFilename(), url));
 
+		// Atualiza as URL dos documentos que foram feito upload no Banco de Dados.
+		entidade = es.atualizar(entidade);
+		
 		return "sucesso/sucesso-cadastro-entidade";
 	}
 
