@@ -12,22 +12,26 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.com.apoioaosfundos.entity.Entidade;
 import br.com.apoioaosfundos.entity.Usuario;
 import br.com.apoioaosfundos.service.EntidadeService;
+import br.com.apoioaosfundos.service.UsuarioService;
 import br.com.apoioaosfundos.utility.FileUpload;
 
 @Controller
 public class EntidadeController {
 
 	private EntidadeService es;
+	private UsuarioService us;
 
 	@Autowired
-	public EntidadeController(EntidadeService es) {
+	public EntidadeController(EntidadeService es, UsuarioService us) {
 		this.es = es;
+		this.us = us;
 	}
 
 	// Método responsável por fazer o binding da data recebida do formulário
@@ -59,6 +63,7 @@ public class EntidadeController {
 		model.addAttribute("path", path);
 
 		usuario = (Usuario) request.getSession().getAttribute("usuario");
+		usuario = us.carregar(usuario.getId());
 
 		entidade = es.adicionar(entidade, usuario);
 
@@ -80,6 +85,19 @@ public class EntidadeController {
 		entidade = es.atualizar(entidade);
 		
 		return "sucesso/sucesso-cadastro-entidade";
+	}
+	
+	@RequestMapping(value = "/painel/entidade/visualizar/{id}", method = RequestMethod.GET)
+	public String visualizarGet(@PathVariable Long id, Entidade entidade, HttpServletRequest request, Model model) {
+
+		// Recebe o contexto da requisição.
+		String path = request.getContextPath();
+		model.addAttribute("path", path);
+		
+		entidade = es.carregar(id);
+		model.addAttribute("entidade", entidade);
+
+		return "painel-usuario/visualizar-entidade";
 	}
 
 }

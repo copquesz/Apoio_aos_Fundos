@@ -1,8 +1,5 @@
 package br.com.apoioaosfundos.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,16 +14,19 @@ import br.com.apoioaosfundos.entity.Conselho;
 import br.com.apoioaosfundos.entity.Usuario;
 import br.com.apoioaosfundos.enumerated.TipoFundo;
 import br.com.apoioaosfundos.service.ConselhoService;
+import br.com.apoioaosfundos.service.UsuarioService;
 import br.com.apoioaosfundos.utility.FileUpload;
 
 @Controller
 public class ConselhoController {
 
 	private ConselhoService cs;
+	private UsuarioService us;
 
 	@Autowired
-	public ConselhoController(ConselhoService cs) {
+	public ConselhoController(ConselhoService cs, UsuarioService us) {
 		this.cs = cs;
+		this.us = us;
 	}
 
 	@RequestMapping(value = "/painel/conselho/cadastrar", method = RequestMethod.GET)
@@ -51,6 +51,7 @@ public class ConselhoController {
 		model.addAttribute("path", path);
 
 		usuario = (Usuario) request.getSession().getAttribute("usuario");
+		usuario = us.carregar(usuario.getId());
 		conselho = cs.adicionar(conselho, usuario);
 
 		String url = "documentos/conselhos/" + conselho.getTipoFundo().getDescricao() + "/" + conselho.getRazaoSocial();
