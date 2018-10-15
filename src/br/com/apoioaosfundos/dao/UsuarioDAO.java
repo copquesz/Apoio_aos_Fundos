@@ -17,7 +17,7 @@ public class UsuarioDAO {
 	// Persiste um Usuário no Banco de Dados
 	public Usuario adicionar(Usuario usuario) {
 		em.persist(usuario);
-		return carregar(usuario.getEmail());
+		return carregar(usuario.getCpf());
 	}
 
 	// Busca um Usuário no Banco de Dados, passando seu ID como parâmetro
@@ -44,9 +44,9 @@ public class UsuarioDAO {
 		Query query = em.createQuery("SELECT us FROM Usuario us WHERE us.cpf = :cpf", Usuario.class);
 		query.setParameter("cpf", cpf);
 		if (query.getResultList().isEmpty()) {
-			return true;
-		} else {
 			return false;
+		} else {
+			return true;
 		}
 	}
 

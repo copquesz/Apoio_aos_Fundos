@@ -61,11 +61,11 @@ public class UsuarioController {
 			// Caso exista exibe uma mensagem de erro para o usuario
 			model.addAttribute("cpfCadastrado", false);
 			us.adicionar(usuario);
+			return "sucesso/sucesso-usuario-cadastrado";
 		} else {
 			model.addAttribute("cpfCadastrado", true);
+			return "principal/cadastro-usuario";
 		}
-
-		return "principal/cadastro-usuario";
 
 	}
 
