@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <c:import url="../modals/modal-proposta-entidade-fundo.jsp" />
+<c:import url="../modals/modal-servico-indisponivel.jsp" />
 
 <nav class="navbar navbar-default top-navbar" role="navigation">
     <div class="navbar-header">
@@ -11,7 +12,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <img src="${path}/assets/img/logo-ftv.png" class="navbar-brand" style="width: 372px; height: 108px;">
+        <img src="${path}/assets/img/logo-menu.png" class="navbar-brand" style="width: 244.5px; height: 144.75px;">
     </div>
 </nav> <!--/. NAV TOP  -->
 
@@ -21,11 +22,21 @@
 
             <li>
                 <a href="${path}/painel" ><i class="fas fa-desktop"></i> Painel</a>
+            </li>         
+            <li>
+                <a href="#"><i class="fas fa-plus-square"></i> Cadastrar<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="${path}/painel/conselho/cadastrar"><i class="fas fa-landmark"></i> Conselho</a>
+                    </li>
+                    <li>
+                        <a href="${path}/painel/entidade/cadastrar"><i class="fas fa-building"></i> Entidade</a>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#serviço-indisponivel"><i class="fab fa-accusoft"></i> Projeto</a>
+                    </li>
+                </ul>
             </li>
-            <li>
-                <a href="${path}/painel/cadastrar" ><i class="fas fa-plus-square"></i> Cadastrar</a>
-            </li>          
-            <li>
             <li>
                 <a href="#"><i class="fas fa-user-edit"></i> Inscrições<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">

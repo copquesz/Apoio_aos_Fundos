@@ -11,7 +11,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <img src="${path}/assets/img/logo-ftv.png" class="navbar-brand" style="width: 372px; height: 108px;">
+                <img src="${path}/assets/img/logo-menu.png" class="navbar-brand" style="width: 244.5px; height: 144.75px;">
             </div>
         </nav> <!--/. NAV TOP  -->
 
@@ -22,12 +22,6 @@
                     <li>
                         <a class="active-menu" href="${path}/index"><i class="fa fa-home fa-fw"></i> Home</a>
                     </li>
-                    <li>
-                        <a href="${path}/documentos/edital.pdf" target="_blank"><i class="fas fa-clipboard-list"></i> Edital</a>
-                    </li>
-                    <li>
-                        <a href="${path}/documentos/tutorial.pdf" target="_blank"><i class="fas fa-info-circle"></i> Tutorial</a>
-                    </li> 
                     <li>
                         <a href="#"><i class="fas fa-user-edit"></i> Inscrições<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -43,7 +37,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="http://fundacaotelefonica.org.br/apoio-aos-fundos/#contato"><i class="fas fa-envelope"></i> Contato</a>
+                        <a href="#"><i class="fas fa-envelope"></i> Contato</a>
                     </li>
                 </ul>
 
