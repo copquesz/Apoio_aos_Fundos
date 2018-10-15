@@ -12,10 +12,12 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.apoioaosfundos.entity.Conselho;
 import br.com.apoioaosfundos.entity.Entidade;
 import br.com.apoioaosfundos.entity.Usuario;
+import br.com.apoioaosfundos.enumerated.TipoFundo;
 import br.com.apoioaosfundos.enumerated.TipoUsuario;
 import br.com.apoioaosfundos.service.ConselhoService;
 import br.com.apoioaosfundos.service.EntidadeService;
@@ -79,7 +81,8 @@ public class UsuarioController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String loginPost(HttpSession session, Usuario usuario, HttpServletRequest request, Model model) {
+	public String loginPost(HttpSession session, Usuario usuario, HttpServletRequest request, Model model,
+			RedirectAttributes redirectAttributes) {
 
 		// Recebe o contexto da requisição.
 		String path = request.getContextPath();
@@ -95,11 +98,15 @@ public class UsuarioController {
 			// Verifica qual o tipo de usuário e direciona para o seu respectivo painel
 			if (usuario.getTipoUsuario().equals(TipoUsuario.NORMAL)) {
 
+				List listaFundos = new ArrayList<>();
+				listaFundos = cs.listarFundos();
+				model.addAttribute("listaFundos", listaFundos);
+
 				// Carrega a lista de conselhos cadastrados pelo usuário
 				List<Conselho> conselhosUsuario = new ArrayList<Conselho>();
 				conselhosUsuario = cs.listar(usuario);
 				model.addAttribute("conselhosUsuario", conselhosUsuario);
-				
+
 				// Carrega a lista de conselhos cadastrados pelo usuário
 				List<Entidade> entidadesUsuario = new ArrayList<Entidade>();
 				entidadesUsuario = es.listar(usuario);
@@ -112,7 +119,10 @@ public class UsuarioController {
 			}
 		}
 
-		return "erro/login";
+		// Salva o status true para o erro de login e redireciona para o método que
+		// chama a index.
+		redirectAttributes.addFlashAttribute("statusLogin", "true");
+		return "redirect:index";
 	}
 
 	@RequestMapping(value = "/logoff", method = RequestMethod.GET)
@@ -144,11 +154,15 @@ public class UsuarioController {
 		// Verifica qual o tipo de usuário e direciona para o seu respectivo painel
 		if (usuario.getTipoUsuario().equals(TipoUsuario.NORMAL)) {
 
+			List listaFundos = new ArrayList<>();
+			listaFundos = cs.listarFundos();
+			model.addAttribute("listaFundos", listaFundos);
+
 			// Carrega a lista de conselhos cadastrados pelo usuário
 			List<Conselho> conselhosUsuario = new ArrayList<Conselho>();
 			conselhosUsuario = cs.listar(usuario);
 			model.addAttribute("conselhosUsuario", conselhosUsuario);
-			
+
 			// Carrega a lista de conselhos cadastrados pelo usuário
 			List<Entidade> entidadesUsuario = new ArrayList<Entidade>();
 			entidadesUsuario = es.listar(usuario);

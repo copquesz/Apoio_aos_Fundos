@@ -35,13 +35,13 @@
                 </div> <!-- /. ROW  -->
                	<div class="row">
                     <div class="col-md-12">
-                        <c:if test="${erroLogin}">
+                        <c:if test="${loginIncorreto}">
                             <div class="alert alert-danger text-justify">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                                 <h4 class="alert-heading"><b>ERRO:</b></h4>
-                                <p>O <b>usuário</b> e/ou <b>senha</b> informados estão incorretos.</p>
+                                <p>O <b>cpf</b> e/ou <b>senha</b> informados estão incorretos.</p>
                                 <p>Tente novamente ou caso necessário entre em contato conosco através do e-mail tecnologia@apoioaosfundos.com.br</p>
                             </div>
                         </c:if>  
@@ -92,7 +92,7 @@
                                         <div class="col-md-6">                                                    
                                             <div class="form-group">
                                                 <label>CPF:</label> 
-                                                <input type="text" class="form-control" id="cpf" name="cpf" required> 
+                                                <input type="text" class="form-control" id="cpf" name="cpf" required placeholder="999.999.999-99"> 
                                             </div>
                                             <div class="form-group">
                                                 <label>Senha:</label> 
