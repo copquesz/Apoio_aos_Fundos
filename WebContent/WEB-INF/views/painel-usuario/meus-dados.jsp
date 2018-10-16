@@ -27,122 +27,127 @@
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
             <div id="page-inner">
-    			<div class="row">
+
+                <div class="row">
                     <div class="col-md-12">
-                        <div class="row">
-                            <div class="col-md-12 col-sm-12">
-                                <div class="panel panel-default">
-                                    <div class="panel-body">
-                                        <form role="form" method="get" action="${path}/painel/meus-dados/editar" acceptcharset="UTF-8">
-                                            <fieldset style="margin-top: 70px;">
-                                            <legend>DADOS PESSOAIS</legend>
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                        <div class="form-group">
-                                                            <label>Nome:</label>
-                                                            <input type="text" class="form-control" value="${usuario.nome}" placeholder="Não Informado" readonly>                                     
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="form-group">
-                                                            <label>Sobrenome:</label>
-                                                            <input type="text" class="form-control" value="${usuario.sobrenome}" placeholder="Não Informado" readonly>                                     
-                                                        </div>
-                                                    </div>   
-                                                    <div class="col-md-4">
-                                                        <div class="form-group">
-                                                            <label>CPF:</label>
-                                                            <input type="text" class="form-control" value="${usuario.cpf}" placeholder="Não Informado" readonly>                            
-                                                        </div>
-                                                    </div>                                         
-                                                </div>                                       
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                        <div class="form-group">
-                                                            <label>E-mail:</label>
-                                                            <input type="email" class="form-control" value="${usuario.email}" placeholder="Não Informado" readonly>                                     
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="form-group">
-                                                            <label>Telefone Fixo:</label>
-                                                            <input type="text" class="form-control" value="${usuario.telefoneResidencial}" placeholder="Não Informado" readonly>                              
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="form-group">
-                                                            <label>Telefone Celular:</label>
-                                                            <input type="text" class="form-control" value="${usuario.telefoneCelular}" placeholder="Não Informado" readonly>                            
-                                                        </div>
-                                                    </div>
+                        <h1 class="page-header">
+                            <small><b>MEUS DADOS</small>
+                        </h1>
+                    </div>
+                </div>
+    			
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <form role="form" method="get" action="${path}/painel/meus-dados/editar" acceptcharset="UTF-8">
+                                    <fieldset style="margin-top: 70px;">
+                                    <legend>DADOS PESSOAIS</legend>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Nome:</label>
+                                                    <input type="text" class="form-control" value="${usuario.nome}" placeholder="Não Informado" readonly>                                     
                                                 </div>
-                                            </fieldset>
-
-                                            <fieldset style="margin-top: 70px;">
-                                            <legend>ENDEREÇO</legend>
-                                                <div class="row">
-                                                    <div class="col-md-5">
-                                                        <div class="form-group">
-                                                            <label>CEP:</label>
-                                                            <input type="text" class="form-control" value="${usuario.endereco.cep}" placeholder="Não Informado" readonly>                                    
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-7">
-                                                        <div class="form-group">
-                                                            <label>Logradouro:</label>
-                                                            <input type="text" class="form-control" value="${usuario.endereco.logradouro}" placeholder="Não Informado" readonly>                                         
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <div class="form-group">
-                                                            <label>Nº:</label>
-                                                            <input type="text" class="form-control" value="${usuario.endereco.numero}" placeholder="Não Informado" readonly>                                     
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <div class="form-group">
-                                                            <label>Complemento:</label>
-                                                            <input type="text" class="form-control" value="${usuario.endereco.complemento}" placeholder="Não Informado" readonly>                                     
-                                                        </div>
-                                                    </div>
-                                                </div>  
-                                                <div class="row">
-                                                    <div class="col-md-5">
-                                                        <div class="form-group">
-                                                            <label>Bairro:</label>
-                                                            <input type="text" class="form-control" value="${usuario.endereco.bairro}" placeholder="Não Informado" readonly>                               
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="form-group">
-                                                            <label>Cidade:</label>
-                                                            <input type="text" class="form-control" value="${usuario.endereco.cidade}" placeholder="Não Informado" readonly>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <div class="form-group">
-                                                            <label>Estado:</label>
-                                                            <input type="text" class="form-control" value="${usuario.endereco.estado}" placeholder="Não Informado" readonly>
-                                                        </div>
-                                                    </div>
-                                                </div> 
-                                            </fieldset> 
-
-                                            <div style="margin-top: 50px;">
-                                                <center>
-                                                    <button type="submit" class="btn btn-primary">Editar</button>
-                                                    <a href="${path}/painel" class="btn btn-danger" style="margin-left: 20px;">Voltar</a>
-                                                </center>
                                             </div>
-                                        </form>                                         
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Sobrenome:</label>
+                                                    <input type="text" class="form-control" value="${usuario.sobrenome}" placeholder="Não Informado" readonly>                                     
+                                                </div>
+                                            </div>   
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>CPF:</label>
+                                                    <input type="text" class="form-control" value="${usuario.cpf}" placeholder="Não Informado" readonly>                            
+                                                </div>
+                                            </div>                                         
+                                        </div>                                       
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>E-mail:</label>
+                                                    <input type="email" class="form-control" value="${usuario.email}" placeholder="Não Informado" readonly>                                     
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Telefone Fixo:</label>
+                                                    <input type="text" class="form-control" value="${usuario.telefoneResidencial}" placeholder="Não Informado" readonly>                              
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Telefone Celular:</label>
+                                                    <input type="text" class="form-control" value="${usuario.telefoneCelular}" placeholder="Não Informado" readonly>                            
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+
+                                    <fieldset style="margin-top: 70px;">
+                                    <legend>ENDEREÇO</legend>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    <label>CEP:</label>
+                                                    <input type="text" class="form-control" value="${usuario.endereco.cep}" placeholder="Não Informado" readonly>                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-7">
+                                                <div class="form-group">
+                                                    <label>Logradouro:</label>
+                                                    <input type="text" class="form-control" value="${usuario.endereco.logradouro}" placeholder="Não Informado" readonly>                                         
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label>Nº:</label>
+                                                    <input type="text" class="form-control" value="${usuario.endereco.numero}" placeholder="Não Informado" readonly>                                     
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Complemento:</label>
+                                                    <input type="text" class="form-control" value="${usuario.endereco.complemento}" placeholder="Não Informado" readonly>                                     
+                                                </div>
+                                            </div>
+                                        </div>  
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    <label>Bairro:</label>
+                                                    <input type="text" class="form-control" value="${usuario.endereco.bairro}" placeholder="Não Informado" readonly>                               
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Cidade:</label>
+                                                    <input type="text" class="form-control" value="${usuario.endereco.cidade}" placeholder="Não Informado" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Estado:</label>
+                                                    <input type="text" class="form-control" value="${usuario.endereco.estado}" placeholder="Não Informado" readonly>
+                                                </div>
+                                            </div>
+                                        </div> 
+                                    </fieldset> 
+
+                                    <div style="margin-top: 50px;">
+                                        <center>
+                                            <button type="submit" class="btn btn-primary">Editar</button>
+                                            <a href="${path}/painel" class="btn btn-danger" style="margin-left: 20px;">Voltar</a>
+                                        </center>
                                     </div>
-                                </div>
+                                </form>                                         
                             </div>
                         </div>
-                    </div>
-    			</div><!-- /. ROW  -->             
+                    </div><!-- /. COL-12  -->           
+                </div><!-- /. ROW  -->           
             </div><!-- /. PAGE INNER  -->
         </div> <!-- /. PAGE WRAPPER  -->
      <!-- /. WRAPPER  -->

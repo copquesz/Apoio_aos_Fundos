@@ -276,7 +276,7 @@
                                     <div style="margin-top: 30px;">
                                         <center>
                                             <button type="submit" class="btn btn-primary">Cadastrar</button>
-                                            <a href="${path}/plataforma/index" class="btn btn-danger" style="margin-left: 20px;">Voltar</a>
+                                            <a href="${path}/painel" class="btn btn-danger" style="margin-left: 20px;">Voltar</a>
                                         </center>
                                     </div>
 

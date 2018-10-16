@@ -24,6 +24,7 @@
         <!-- Import Menu -->
         <c:import url="../menu/menu-usuario.jsp" />
         <c:import url="../modals/modal-meus-registros.jsp" />
+        <c:import url="../modals/modal-selecione-tipo-fundo.jsp" />
 
         <div id="page-wrapper" >
             <div id="page-inner">
@@ -71,7 +72,7 @@
                                 <center>Cadastrar Projeto</center>
                             </div>
                             <div class="panel-body">
-                                <a href="${path}/painel/proposta"><center><i class="fab fa-accusoft" style="font-size: 100px;"></i></center></a>
+                                <a href="#" data-toggle="modal" data-target="#selecione-tipo-fundo"><center><i class="fab fa-accusoft" style="font-size: 100px;"></i></center></a>
                             </div>
                             <div class="panel-footer">
                                 <center><small>Cadastre o Projeto.</small></center>

@@ -129,6 +129,7 @@
     <!-- Custom Js -->
     <script src="${path}/assets/js/custom-scripts.js"></script>
     <!-- Mask -->
+    <script src="${path}/assets/js/jquery.maskedinput.js"></script>
     <script type="text/javascript">
         $("#cpf").mask("999.999.999-99");        
     </script> 

@@ -39,7 +39,7 @@
                         <div class="alert alert-success text-justify">
                             <h4 class="alert-heading"><b>Usuario Cadastrado</b></h4>
                             <p>O usuário foi cadastrado com sucesso.</p>
-                            <p><a href="${path}/index">Clique aqui</a> para acessar o painel e utilizar os serviços da plataforma, informando o <b>cpf</b>.</p>
+                            <p><a href="${path}/index"><b>Clique aqui</b></a> para acessar o painel e utilizar os serviços da plataforma, informando o <b>cpf</b> e a <b>senha</b>.</p>
                         </div>
                     </div>
                 </div>
