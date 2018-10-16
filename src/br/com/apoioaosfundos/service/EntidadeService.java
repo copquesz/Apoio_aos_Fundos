@@ -21,6 +21,7 @@ public class EntidadeService {
 	public Entidade adicionar(Entidade entidade, Usuario usuario) {
 		entidade.setDataCadastro(new Date());
 		entidade.getPresidente().setTipoPessoa(TipoPessoa.PRESIDENTE);
+		entidade.setUsuario(usuario);
 		return dao.adicionar(entidade);
 	}
 

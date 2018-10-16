@@ -1,7 +1,9 @@
 package br.com.apoioaosfundos.controller;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -68,32 +70,40 @@ public class EntidadeController {
 		entidade = es.adicionar(entidade, usuario);
 
 		String url = "documentos/entidades/" + entidade.getRazaoSocial();
-		
+
 		// Faz upload do Cartão CNPJ e seta a URL gerada
-		entidade.getDocumentosEntidade().setUrlCartaoCnpj(FileUpload.upload(request, entidade.getDocumentosEntidade().getCartaoCnpj(), entidade.getDocumentosEntidade().getCartaoCnpj().getOriginalFilename(), url));
-		
+		entidade.getDocumentosEntidade()
+				.setUrlCartaoCnpj(FileUpload.upload(request, entidade.getDocumentosEntidade().getCartaoCnpj(),
+						entidade.getDocumentosEntidade().getCartaoCnpj().getOriginalFilename(), url));
+
 		// Faz upload da Ata de Eleição e seta a URL gerada
-		entidade.getDocumentosEntidade().setUrlAtaEleicao(FileUpload.upload(request, entidade.getDocumentosEntidade().getAtaEleicao(), entidade.getDocumentosEntidade().getAtaEleicao().getOriginalFilename(), url));
-		
+		entidade.getDocumentosEntidade()
+				.setUrlAtaEleicao(FileUpload.upload(request, entidade.getDocumentosEntidade().getAtaEleicao(),
+						entidade.getDocumentosEntidade().getAtaEleicao().getOriginalFilename(), url));
+
 		// Faz upload do Documento do Presidente e seta a URL gerada
-		entidade.getDocumentosEntidade().setUrlDocumentoPresidente(FileUpload.upload(request, entidade.getDocumentosEntidade().getDocumentoPresidente(), entidade.getDocumentosEntidade().getDocumentoPresidente().getOriginalFilename(), url));
-		
+		entidade.getDocumentosEntidade().setUrlDocumentoPresidente(
+				FileUpload.upload(request, entidade.getDocumentosEntidade().getDocumentoPresidente(),
+						entidade.getDocumentosEntidade().getDocumentoPresidente().getOriginalFilename(), url));
+
 		// Faz upload do Estatuto Social e seta a URL gerada
-		entidade.getDocumentosEntidade().setUrlEstatutoSocial(FileUpload.upload(request, entidade.getDocumentosEntidade().getEstatutoSocial(), entidade.getDocumentosEntidade().getEstatutoSocial().getOriginalFilename(), url));
+		entidade.getDocumentosEntidade()
+				.setUrlEstatutoSocial(FileUpload.upload(request, entidade.getDocumentosEntidade().getEstatutoSocial(),
+						entidade.getDocumentosEntidade().getEstatutoSocial().getOriginalFilename(), url));
 
 		// Atualiza as URL dos documentos que foram feito upload no Banco de Dados.
 		entidade = es.atualizar(entidade);
-		
+
 		return "sucesso/sucesso-cadastro-entidade";
 	}
-	
+
 	@RequestMapping(value = "/painel/entidade/visualizar/{id}", method = RequestMethod.GET)
 	public String visualizarGet(@PathVariable Long id, Entidade entidade, HttpServletRequest request, Model model) {
 
 		// Recebe o contexto da requisição.
 		String path = request.getContextPath();
 		model.addAttribute("path", path);
-		
+
 		entidade = es.carregar(id);
 		model.addAttribute("entidade", entidade);
 
