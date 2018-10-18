@@ -38,6 +38,10 @@ public class ConselhoService {
 	public Conselho atualizar(Conselho conselho) {
 		return dao.atualizar(conselho);
 	}
+	
+	public boolean isCadastrado(String cnpj) {
+		return dao.isCadastrado(cnpj);
+	}
 
 	public List<Conselho> listar(Usuario usuario) {
 		return dao.listar(usuario);

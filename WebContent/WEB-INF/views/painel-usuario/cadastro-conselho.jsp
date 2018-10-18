@@ -53,6 +53,16 @@
 
                 <div class="row">
                     <div class="col-md-12">
+                        <c:if test="${cnpjCadastrado}">                                               
+                            <div class="alert alert-danger text-justify">
+                                <p>CNPJ já cadastrado!</p>                                    
+                            </div>
+                        </c:if>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
                         <div class="panel panel-default">
                             <div class="panel-body">
 

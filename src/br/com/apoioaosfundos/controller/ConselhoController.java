@@ -50,26 +50,45 @@ public class ConselhoController {
 		String path = request.getContextPath();
 		model.addAttribute("path", path);
 
-		usuario = (Usuario) request.getSession().getAttribute("usuario");
-		usuario = us.carregar(usuario.getId());
-		conselho = cs.adicionar(conselho, usuario);
+		String url;
 
-		String url = "documentos/conselhos/" + conselho.getTipoFundo().getDescricao() + "/" + conselho.getRazaoSocial();
-		
-		// Faz upload do Cartão CNPJ e seta a URL gerada
-		conselho.getDocumentosConselho().setUrlCartaoCnpj(FileUpload.upload(request, conselho.getDocumentosConselho().getCartaoCnpj(),
-				conselho.getDocumentosConselho().getCartaoCnpj().getOriginalFilename(), url));
-		
-		// Faz upload da Declaração Bancária e seta a URL gerada
-		conselho.getDocumentosConselho().setUrlDeclaracaoBancaria(FileUpload.upload(request, conselho.getDocumentosConselho().getDeclaracaoBancaria(),
-				conselho.getDocumentosConselho().getDeclaracaoBancaria().getOriginalFilename(), url));
-		
-		// Faz upload do Diagnóstico Social e seta a URL gerada
-		conselho.getDocumentosConselho().setUrlDiagnosticoSocial(FileUpload.upload(request, conselho.getDocumentosConselho().getDiagnosticoSocial(),
-				conselho.getDocumentosConselho().getDiagnosticoSocial().getOriginalFilename(), url));
-		
-		// Atualiza as URL dos documentos que foram feito upload no Banco de Dados.
-		conselho = cs.atualizar(conselho);
+		if (!cs.isCadastrado(conselho.getCnpj())) {
+			usuario = (Usuario) request.getSession().getAttribute("usuario");
+			usuario = us.carregar(usuario.getId());
+			conselho = cs.adicionar(conselho, usuario);
+
+			if (conselho.getTipoFundo() == TipoFundo.FUNDO_MUNICIPAL_DA_CRIANÇA_E_DO_ADOLESCENTE
+					|| conselho.getTipoFundo() == TipoFundo.FUNDO_MUNICIPAL_DO_IDOSO) {
+				url = "documentos/conselhos/" + conselho.getTipoFundo().getDescricao() + "/"
+						+ conselho.getEndereco().getCidade();
+			} else {
+				url = "documentos/conselhos/" + conselho.getTipoFundo().getDescricao() + "/"
+						+ conselho.getEndereco().getEstado();
+			}
+
+			// Faz upload do Cartão CNPJ e seta a URL gerada
+			conselho.getDocumentosConselho()
+					.setUrlCartaoCnpj(FileUpload.upload(request, conselho.getDocumentosConselho().getCartaoCnpj(),
+							conselho.getDocumentosConselho().getCartaoCnpj().getOriginalFilename(), url));
+
+			// Faz upload da Declaração Bancária e seta a URL gerada
+			conselho.getDocumentosConselho()
+					.setUrlDeclaracaoBancaria(FileUpload.upload(request,
+							conselho.getDocumentosConselho().getDeclaracaoBancaria(),
+							conselho.getDocumentosConselho().getDeclaracaoBancaria().getOriginalFilename(), url));
+
+			// Faz upload do Diagnóstico Social e seta a URL gerada
+			conselho.getDocumentosConselho()
+					.setUrlDiagnosticoSocial(FileUpload.upload(request,
+							conselho.getDocumentosConselho().getDiagnosticoSocial(),
+							conselho.getDocumentosConselho().getDiagnosticoSocial().getOriginalFilename(), url));
+
+			// Atualiza as URL dos documentos que foram feito upload no Banco de Dados.
+			conselho = cs.atualizar(conselho);
+		} else {
+			model.addAttribute("cnpjCadastrado", true);
+			return "painel-usuario/cadastro-conselho";
+		}
 
 		return "sucesso/sucesso-cadastro-conselho";
 	}

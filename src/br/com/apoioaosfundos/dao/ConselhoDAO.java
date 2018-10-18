@@ -9,6 +9,7 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Service;
 
 import br.com.apoioaosfundos.entity.Conselho;
+import br.com.apoioaosfundos.entity.Entidade;
 import br.com.apoioaosfundos.entity.Usuario;
 import br.com.apoioaosfundos.enumerated.TipoFundo;
 
@@ -34,19 +35,29 @@ public class ConselhoDAO {
 		query.setParameter("cnpj", cnpj);
 		return (Conselho) query.getSingleResult();
 	}
-	
+
 	public Conselho atualizar(Conselho conselho) {
 		return em.merge(conselho);
 	}
 
-	
-	public List<Conselho> listar(Usuario usuario){
+	// Verifica se o CPF informado ja possui cadastro no Banco de Dados
+	public boolean isCadastrado(String cnpj) {
+		Query query = em.createQuery("SELECT cs FROM Conselho cs WHERE cs.cnpj = :cnpj", Conselho.class);
+		query.setParameter("cnpj", cnpj);
+		if (query.getResultList().isEmpty()) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	public List<Conselho> listar(Usuario usuario) {
 		Query query = em.createQuery("SELECT cs FROM Conselho cs WHERE cs.usuario = :usuario", Conselho.class);
 		query.setParameter("usuario", usuario);
 		return query.getResultList();
 	}
-	
-	public List<Conselho> listar(TipoFundo tipoFundo){
+
+	public List<Conselho> listar(TipoFundo tipoFundo) {
 		Query query = em.createQuery("SELECT cs FROM Conselho cs WHERE cs.tipoFundo = :tipoFundo", Conselho.class);
 		query.setParameter("tipoFundo", tipoFundo);
 		return query.getResultList();
