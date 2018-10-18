@@ -42,6 +42,17 @@ public class EntidadeDAO {
 		return em.merge(entidade);
 	}
 
+	// Verifica se o CPF informado ja possui cadastro no Banco de Dados
+	public boolean isCadastrado(String cnpj) {
+		Query query = em.createQuery("SELECT ent FROM Entidade ent WHERE ent.cnpj = :cnpj", Entidade.class);
+		query.setParameter("cnpj", cnpj);
+		if (query.getResultList().isEmpty()) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
 	// Busca todas as Entidades no Banco de Dados, passando o USUARIO que cadastrou
 	// como parâmetro
 	public List<Entidade> listar(Usuario usuario) {

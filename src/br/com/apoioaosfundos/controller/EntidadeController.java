@@ -64,35 +64,41 @@ public class EntidadeController {
 		String path = request.getContextPath();
 		model.addAttribute("path", path);
 
-		usuario = (Usuario) request.getSession().getAttribute("usuario");
-		usuario = us.carregar(usuario.getId());
+		if (es.isCadastrado(entidade.getCnpj())) {
+			usuario = (Usuario) request.getSession().getAttribute("usuario");
+			usuario = us.carregar(usuario.getId());
 
-		entidade = es.adicionar(entidade, usuario);
+			entidade = es.adicionar(entidade, usuario);
 
-		String url = "documentos/entidades/" + entidade.getRazaoSocial();
+			String url = "documentos/entidades/" + entidade.getRazaoSocial();
 
-		// Faz upload do Cartão CNPJ e seta a URL gerada
-		entidade.getDocumentosEntidade()
-				.setUrlCartaoCnpj(FileUpload.upload(request, entidade.getDocumentosEntidade().getCartaoCnpj(),
-						entidade.getDocumentosEntidade().getCartaoCnpj().getOriginalFilename(), url));
+			// Faz upload do Cartão CNPJ e seta a URL gerada
+			entidade.getDocumentosEntidade()
+					.setUrlCartaoCnpj(FileUpload.upload(request, entidade.getDocumentosEntidade().getCartaoCnpj(),
+							entidade.getDocumentosEntidade().getCartaoCnpj().getOriginalFilename(), url));
 
-		// Faz upload da Ata de Eleição e seta a URL gerada
-		entidade.getDocumentosEntidade()
-				.setUrlAtaEleicao(FileUpload.upload(request, entidade.getDocumentosEntidade().getAtaEleicao(),
-						entidade.getDocumentosEntidade().getAtaEleicao().getOriginalFilename(), url));
+			// Faz upload da Ata de Eleição e seta a URL gerada
+			entidade.getDocumentosEntidade()
+					.setUrlAtaEleicao(FileUpload.upload(request, entidade.getDocumentosEntidade().getAtaEleicao(),
+							entidade.getDocumentosEntidade().getAtaEleicao().getOriginalFilename(), url));
 
-		// Faz upload do Documento do Presidente e seta a URL gerada
-		entidade.getDocumentosEntidade().setUrlDocumentoPresidente(
-				FileUpload.upload(request, entidade.getDocumentosEntidade().getDocumentoPresidente(),
-						entidade.getDocumentosEntidade().getDocumentoPresidente().getOriginalFilename(), url));
+			// Faz upload do Documento do Presidente e seta a URL gerada
+			entidade.getDocumentosEntidade()
+					.setUrlDocumentoPresidente(FileUpload.upload(request,
+							entidade.getDocumentosEntidade().getDocumentoPresidente(),
+							entidade.getDocumentosEntidade().getDocumentoPresidente().getOriginalFilename(), url));
 
-		// Faz upload do Estatuto Social e seta a URL gerada
-		entidade.getDocumentosEntidade()
-				.setUrlEstatutoSocial(FileUpload.upload(request, entidade.getDocumentosEntidade().getEstatutoSocial(),
-						entidade.getDocumentosEntidade().getEstatutoSocial().getOriginalFilename(), url));
+			// Faz upload do Estatuto Social e seta a URL gerada
+			entidade.getDocumentosEntidade().setUrlEstatutoSocial(
+					FileUpload.upload(request, entidade.getDocumentosEntidade().getEstatutoSocial(),
+							entidade.getDocumentosEntidade().getEstatutoSocial().getOriginalFilename(), url));
 
-		// Atualiza as URL dos documentos que foram feito upload no Banco de Dados.
-		entidade = es.atualizar(entidade);
+			// Atualiza as URL dos documentos que foram feito upload no Banco de Dados.
+			entidade = es.atualizar(entidade);
+		} else {
+			model.addAttribute("cnpjCadastrado", true);
+			return "painel-usuario/cadastro-entidade";
+		}
 
 		return "sucesso/sucesso-cadastro-entidade";
 	}
