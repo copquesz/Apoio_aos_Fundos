@@ -63,8 +63,27 @@ public class Projeto implements Serializable {
 	private DocumentosProjeto documentosProjeto;
 
 	// Chave estrangeira que relaciona o Endereço com a Entidade.
+	@JoinColumn(name = "entidade_id")
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private Entidade entidade;
+
+	// Chave estrangeira que relaciona o Endereço com a Entidade.
 	@JoinColumn(name = "conselho_id")
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Conselho conselho;
 
+	// Chave estrangeira que relaciona o Endereço com a Entidade.
+	@JoinColumn(name = "usuario_id")
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private Usuario usuario;
+
+	// Chave estrangeira que relaciona o Endereço com a Entidade.
+	@JoinColumn(name = "dissertativa_id")
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private Dissertativas dissertativas;
+
+	// Chave estrangeira que relaciona o Endereço com a Entidade.
+	@JoinColumn(name = "multipla_escolha_id")
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private MultiplaEscolha multiplaEscolha;
 }

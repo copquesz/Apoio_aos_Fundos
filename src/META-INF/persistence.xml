@@ -7,11 +7,13 @@ version="2.0">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<class>br.com.apoioaosfundos.entity.Conselho</class>	
 		<class>br.com.apoioaosfundos.entity.ContaBancaria</class>
+		<class>br.com.apoioaosfundos.entity.Dissertativas</class>
 		<class>br.com.apoioaosfundos.entity.DocumentosConselho</class>
 		<class>br.com.apoioaosfundos.entity.DocumentosEntidade</class>
 		<class>br.com.apoioaosfundos.entity.DocumentosProjeto</class>
 		<class>br.com.apoioaosfundos.entity.Endereco</class>
 		<class>br.com.apoioaosfundos.entity.Entidade</class>
+		<class>br.com.apoioaosfundos.entity.MultiplaEscolha</class>
 		<class>br.com.apoioaosfundos.entity.Pessoa</class>
 		<class>br.com.apoioaosfundos.entity.Projeto</class>
 		<class>br.com.apoioaosfundos.entity.Usuario</class>
