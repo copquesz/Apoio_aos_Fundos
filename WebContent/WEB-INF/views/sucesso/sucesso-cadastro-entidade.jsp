@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Plataforma Apoio aos Fundos | Sessão Finalizada</title>
+    <title>Plataforma Apoio aos Fundos | Entidade Cadastrada</title>
     <link rel="shortcut icon" href="${path}/assets/img/apoio-aos-fundos-favicon.png" type="image/x-icon">
     <!-- Bootstrap Styles-->
     <link href="${path}/assets/css/bootstrap.css" rel="stylesheet" />
@@ -22,7 +22,7 @@
     <div id="wrapper">
 
         <!-- Import Menu -->
-        <c:import url="../menu/menu-usuario.jsp" />
+        <c:import url="/WEB-INF/views/menu/menu-usuario.jsp" />
         
         <div id="page-wrapper" >
             <div id="page-inner">
@@ -30,7 +30,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            <small><b>ENTIDADE CADASTRADO</b></small>
+                            <small><b>CADASTRAR <span class="fas fa-angle-right"></span> ENTIDADE</b></small>
                         </h1>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                     </div>
                 </div>
                     
-                <c:import url="../footer/footer.jsp" />
+                <c:import url="/WEB-INF/views/footer/footer.jsp" />
 
             </div> <!-- /. PAGE INNER  -->
         </div> <!-- /. PAGE WRAPPER  -->

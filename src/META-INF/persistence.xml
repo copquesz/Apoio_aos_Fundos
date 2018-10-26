@@ -13,6 +13,7 @@ version="2.0">
 		<class>br.com.apoioaosfundos.entity.DocumentosProjeto</class>
 		<class>br.com.apoioaosfundos.entity.Endereco</class>
 		<class>br.com.apoioaosfundos.entity.Entidade</class>
+		<class>br.com.apoioaosfundos.entity.MetasIndicadores</class>
 		<class>br.com.apoioaosfundos.entity.MultiplaEscolha</class>
 		<class>br.com.apoioaosfundos.entity.Pessoa</class>
 		<class>br.com.apoioaosfundos.entity.Projeto</class>

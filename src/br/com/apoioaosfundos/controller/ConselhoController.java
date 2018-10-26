@@ -50,11 +50,13 @@ public class ConselhoController {
 		String path = request.getContextPath();
 		model.addAttribute("path", path);
 
-		String url;
+		String url;		
 
 		if (!cs.isCadastrado(conselho.getCnpj())) {
+
 			usuario = (Usuario) request.getSession().getAttribute("usuario");
 			usuario = us.carregar(usuario.getId());
+
 			conselho = cs.adicionar(conselho, usuario);
 
 			if (conselho.getTipoFundo() == TipoFundo.FUNDO_MUNICIPAL_DA_CRIANÇA_E_DO_ADOLESCENTE
@@ -85,12 +87,14 @@ public class ConselhoController {
 
 			// Atualiza as URL dos documentos que foram feito upload no Banco de Dados.
 			conselho = cs.atualizar(conselho);
+
+			model.addAttribute("cnpjCadastrado", false);
+			return "sucesso/sucesso-cadastro-conselho";
+
 		} else {
 			model.addAttribute("cnpjCadastrado", true);
 			return "painel-usuario/cadastro-conselho";
 		}
-
-		return "sucesso/sucesso-cadastro-conselho";
 	}
 
 	@RequestMapping(value = "/painel/conselho/visualizar/{id}", method = RequestMethod.GET)

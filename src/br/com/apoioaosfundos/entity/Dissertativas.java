@@ -1,7 +1,6 @@
 package br.com.apoioaosfundos.entity;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import br.com.apoioaosfundos.enumerated.TipoFundo;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Plataforma Apoio aos Fundos | Sessão Finalizada</title>
+    <title>Plataforma Apoio aos Fundos | Projeto Cadastrado</title>
     <link rel="shortcut icon" href="${path}/assets/img/apoio-aos-fundos-favicon.png" type="image/x-icon">
     <!-- Bootstrap Styles-->
     <link href="${path}/assets/css/bootstrap.css" rel="stylesheet" />
@@ -20,6 +20,9 @@
 
 <body>
     <div id="wrapper">
+
+        <!-- Import Menu -->
+        <c:import url="/WEB-INF/views/menu/menu-usuario.jsp" />
         
         <div id="page-wrapper" >
             <div id="page-inner">
@@ -27,21 +30,16 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            <small><b>SESSÃO FINALIZADA</b></small>
+                            <small><b>CADASTRAR <span class="fas fa-angle-right"></span> PROJETO</b></small>
                         </h1>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="alert alert-success text-justify">
-                            <h4 class="alert-heading"><b>Sessão Finalizada</b></h4>
-                            <p>Para acessar a plataforma novamente, faça o login informando <b>cpf</b> e <b>senha</b>.</p>
-                            <p>Para maiores informações entre em contato com o e-mail: <b>suporte@apoioaosfundos.com.br</b></p>
-                            <div style="margin-top: 50px;">
-                                <center>
-                                    <a href="${path}/index" class="btn btn-warning"><i class="fas fa-home"></i> Home</a>
-                                </center>
-                            </div>
+                            <h4 class="alert-heading"><b>Projeto Cadastrado</b></h4>
+                            <p>O cadastro do projeto foi realizado com sucesso.</p>
+                            <p>Para visualizar os dados cadastrados, acesse <b>MEUS REGISTROS</b> no painel do usuário.</p>
                         </div>
                     </div>
                 </div>

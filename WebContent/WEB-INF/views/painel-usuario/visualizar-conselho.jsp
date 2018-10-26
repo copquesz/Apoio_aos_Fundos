@@ -22,7 +22,7 @@
     <div id="wrapper">
         
         <!-- Import Menu -->
-        <c:import url="../menu/menu-usuario.jsp" />
+        <c:import url="/WEB-INF/views/menu/menu-usuario.jsp" />
 
         <div id="page-wrapper" >
             <div id="page-inner">
@@ -218,7 +218,7 @@
                     </div>
                 </div> <!-- /. ROW  -->
                     
-                <c:import url="../footer/footer.jsp" />
+                <c:import url="/WEB-INF/views/footer/footer.jsp" />
 
             </div> <!-- /. PAGE INNER  -->
         </div> <!-- /. PAGE WRAPPER  -->

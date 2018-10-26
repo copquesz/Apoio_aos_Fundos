@@ -1,11 +1,12 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Plataforma Apoio aos Fundos | Cadastro Usuário</title>
+    <title>Apoio aos Fundos - Fundação Telefônica Vivo</title>
     <link rel="shortcut icon" href="${path}/assets/img/apoio-aos-fundos-favicon.png" type="image/x-icon">
     <!-- Bootstrap Styles-->
     <link href="${path}/assets/css/bootstrap.css" rel="stylesheet" />
@@ -14,95 +15,82 @@
     <!-- Custom Styles-->
     <link href="${path}/assets/css/custom-styles.css" rel="stylesheet" />
     <link href="${path}/assets/css/style.css" rel="stylesheet" />
-     <!-- Google Fonts-->
-   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <!-- Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
-
 <body>
-    <div id="wrapper"> 
-        
-        <c:import url="/WEB-INF/views/menu/menu-principal.jsp" />
+    <div id="wrapper">
 
+        <!-- Import Menu -->
+        <c:import url="/WEB-INF/views/menu/menu-usuario.jsp" />
+
+        <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
             <div id="page-inner">
-                
+
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            <small><b>CADASTRO <span class="fas fa-angle-right"></span> USUÁRIO</b></small>
+                            <small><b>MEUS DADOS <span class="fas fa-angle-right"></span> EDITAR</b></small>
                         </h1>
                     </div>
                 </div>
+    			
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="alert alert-info text-justify">
-                            <p>Nesta etapa você irá fazer o cadastro de suas informações pessoais para acessar a plataforma. 
-                            <p><b>Em caso de dúvidas, posicione o cursor neste ícone <i class="fas fa-info-circle"></i> ou entre em contato por telefone ou e-mail.</b></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <c:if test="${cpfCadastrado}">                                               
-                            <div class="alert alert-danger text-justify">
-                                <p>CPF já cadastrado!</p>                                    
-                            </div>
-                        </c:if>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12 col-sm-12">
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                
-                                <form role="form" method="post" action="${path}/usuario/cadastro" enctype="multipart/form-data" acceptcharset="UTF-8">
+                                <form role="form" method="post" action="${path}/painel/meus-dados/editar" acceptcharset="UTF-8">
                                     <fieldset style="margin-top: 70px;">
-                                    <legend>DADOS PESSOAIS</legend>                                    
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>Nome: <span class="input-required">*</span></label>
-                                                    <input type="text" class="form-control" id="nome" name="nome" required>                                     
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>Sobrenome: <span class="input-required">*</span></label>
-                                                    <input type="text" class="form-control" id="sobrenome" name="sobrenome" required>                                     
-                                                </div>
-                                            </div>                                            
-                                        </div>
+                                    <legend>DADOS PESSOAIS</legend>
+
+                                    <!-- Dados do Usuario -->
+                                    <input type="hidden" name="id" value="${usuario.id}">
+                                    <input type="hidden" name="tipoUsuario" value="${usuario.tipoUsuario}">
+                                    <input type="hidden" name="senha" value="${usuario.senha}">
+                                    <input type="hidden" name="dataCadastro" value="${usuario.dataCadastro}">
+                                    <input type="hidden" name="ultimoAcesso" value="${usuario.ultimoAcesso}">
+
+                                    <!-- Dados do Endereço -->
+                                    <input type="hidden" name="endereco.id" value="${usuario.endereco.id}">
+                                    
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label>E-mail: <span class="input-required">*</span></label>
-                                                    <input type="email" class="form-control" name="email" required>                                     
+                                                    <label>Nome:</label>
+                                                    <input type="text" class="form-control" name="nome" value="${usuario.nome}" placeholder="Não Informado">                                     
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label>CPF: </label>
-                                                    <input type="text" class="form-control" id="cpf" name="cpf" onchange="if(!validarCPF(this.value)){alert('CPF Informado é inválido'); this.value='';}" required>                            
+                                                    <label>Sobrenome:</label>
+                                                    <input type="text" class="form-control" name="sobrenome" value="${usuario.sobrenome}" placeholder="Não Informado">                                     
+                                                </div>
+                                            </div>   
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>CPF:</label>
+                                                    <input type="text" class="form-control" name="cpf" id="cpf" value="${usuario.cpf}" placeholder="Não Informado">                            
+                                                </div>
+                                            </div>                                         
+                                        </div>                                       
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>E-mail:</label>
+                                                    <input type="email" class="form-control" name="email" value="${usuario.email}" placeholder="Não Informado">                                     
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label>Senha: <span class="input-required">*</span></label>
-                                                    <input type="password" class="form-control" id="senha" name="senha" minlength="6" required>                                     
+                                                    <label>Telefone Fixo:</label>
+                                                    <input type="text" class="form-control" name="telefoneResidencial" id="telefoneResidencial" value="${usuario.telefoneResidencial}" placeholder="Não Informado">                              
                                                 </div>
                                             </div>
-                                        </div>                                        
-                                        <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label>Telefone Fixo: </label>
-                                                    <input type="text" class="form-control" id="telefoneResidencial" name="telefoneResidencial">                              
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>Telefone Celular: </label>
-                                                    <input type="text" class="form-control" id="telefoneCelular" name="telefoneCelular">                            
+                                                    <label>Telefone Celular:</label>
+                                                    <input type="text" class="form-control" name="telefoneCelular" id="telefoneCelular" value="${usuario.telefoneCelular}" placeholder="Não Informado">                            
                                                 </div>
                                             </div>
                                         </div>
@@ -113,49 +101,49 @@
                                         <div class="row">
                                             <div class="col-md-5">
                                                 <div class="form-group">
-                                                    <label>CEP: <span class="input-required">*</span></label>
-                                                    <input type="text" class="form-control" id="cep" name="endereco.cep" required>                                    
+                                                    <label>CEP:</label>
+                                                    <input type="text" class="form-control" name="endereco.cep" id="cep" value="${usuario.endereco.cep}" placeholder="Não Informado">                                    
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-7">
                                                 <div class="form-group">
-                                                    <label>Logradouro: <span class="input-required">*</span></label>
-                                                    <input type="text" class="form-control" id="logradouro" name="endereco.logradouro" required>                                         
+                                                    <label>Logradouro:</label>
+                                                    <input type="text" class="form-control" name="endereco.logradouro" id="logradouro" value="${usuario.endereco.logradouro}" placeholder="Não Informado">                                         
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group">
-                                                    <label>Nº: </label>
-                                                    <input type="text" class="form-control" id="numero" name="endereco.numero">                                     
+                                                    <label>Nº:</label>
+                                                    <input type="text" class="form-control" name="endereco.numero" id="numero" value="${usuario.endereco.numero}" placeholder="Não Informado">                                     
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label>Complemento: </label>
-                                                    <input type="text" class="form-control" id="complemento" name="endereco.complemento">                                     
+                                                    <label>Complemento:</label>
+                                                    <input type="text" class="form-control" name="endereco.complemento" value="${usuario.endereco.complemento}" placeholder="Não Informado">                                     
                                                 </div>
                                             </div>
                                         </div>  
                                         <div class="row">
                                             <div class="col-md-5">
                                                 <div class="form-group">
-                                                    <label>Bairro: <span class="input-required">*</span></label>
-                                                    <input type="text" class="form-control" id="bairro" name="endereco.bairro">                               
+                                                    <label>Bairro:</label>
+                                                    <input type="text" class="form-control" name="endereco.bairro" id="bairro" value="${usuario.endereco.bairro}" placeholder="Não Informado">                               
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label>Cidade: <span class="input-required">*</span></label>
-                                                    <input type="text" class="form-control" id="cidade" name="endereco.cidade" disabled>                                    
+                                                    <label>Cidade:</label>
+                                                    <input type="text" class="form-control" name="endereco.cidade" id="cidade" value="${usuario.endereco.cidade}" placeholder="Não Informado">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label>Estado: <span class="input-required">*</span></label>
-                                                    <select class="form-control" id="estado" name="endereco.estado" disabled>
-                                                        <option value="">Selecione um Estado</option>
+                                                    <label>Estado:</label>
+                                                    <select class="form-control" id="estado" name="endereco.estado">
+                                                        <option value="${usuario.endereco.estado}">${usuario.endereco.estado}</option>
                                                         <option value="Acre">Acre</option>
                                                         <option value="Alagoas">Alagoas</option>
                                                         <option value="Amapá">Amapá</option>
@@ -183,7 +171,7 @@
                                                         <option value="São Paulo">São Paulo</option>
                                                         <option value="Sergipe">Sergipe</option>
                                                         <option value="Tocantins">Tocantins</option>
-                                                    </select>                
+                                                    </select>                                                                
                                                 </div>
                                             </div>
                                         </div> 
@@ -191,23 +179,19 @@
 
                                     <div style="margin-top: 50px;">
                                         <center>
-                                            <button type="submit" class="btn btn-primary">Cadastrar</button>
-                                            <a href="${path}/index" class="btn btn-danger" style="margin-left: 20px;">Voltar</a>
+                                            <button type="submit" class="btn btn-primary">Salvar</button>
+                                            <a href="${path}/painel" class="btn btn-danger" style="margin-left: 20px;">Voltar</a>
                                         </center>
                                     </div>
-
-                                </form> 
+                                </form>                                         
                             </div>
                         </div>
-                    </div>
-                </div> <!-- /. ROW  -->
-                    
-                <c:import url="/WEB-INF/views/footer/footer.jsp" />
-
-            </div> <!-- /. PAGE INNER  -->
+                    </div><!-- /. COL-12  -->           
+                </div><!-- /. ROW  -->           
+            </div><!-- /. PAGE INNER  -->
         </div> <!-- /. PAGE WRAPPER  -->
-    </div> <!-- /. WRAPPER  -->
-    <!-- JS Scripts-->
+     <!-- /. WRAPPER  -->
+ <!-- JS Scripts-->
     <!-- jQuery Js -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
       <!-- Bootstrap Js -->
@@ -394,5 +378,6 @@
         });
     </script>
     
+   
 </body>
 </html>

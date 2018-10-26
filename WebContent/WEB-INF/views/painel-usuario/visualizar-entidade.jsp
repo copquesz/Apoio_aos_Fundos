@@ -22,7 +22,7 @@
     <div id="wrapper">
         
         <!-- Import Menu -->
-        <c:import url="../menu/menu-usuario.jsp" />       
+        <c:import url="/WEB-INF/views/menu/menu-usuario.jsp" />       
 
         <div id="page-wrapper" >
             <div id="page-inner">
@@ -176,24 +176,24 @@
                                         <div class="row">
                                             <div class="col-md-6 margin-25">
                                                 <center>                                                    
-                                                    <a href='${path}/${conselho.documentosEntidade.urlEstatutoSocial}' target="_blank" title="CLIQUE PARA VISUALIZAR O DOCUMENTO"><label for="estatuto-social"><i class="far fa-bookmark" style="font-size: 78px;"></i><hr>Estatuto Social</label></a>
+                                                    <a href='${path}/${entidade.documentosEntidade.urlEstatutoSocial}' target="_blank" title="CLIQUE PARA VISUALIZAR O DOCUMENTO"><label for="estatuto-social"><i class="far fa-bookmark" style="font-size: 78px;"></i><hr>Estatuto Social</label></a>
                                                 </center>
                                             </div>
                                             <div class="col-md-6 margin-25">
                                                 <center>
-                                                    <a href='${path}/${conselho.documentosEntidade.urlCartaoCnpj}' target="_blank" title="CLIQUE PARA VISUALIZAR O DOCUMENTO"><label for="cartao-cnpj"><i class="far fa-credit-card" style="font-size: 78px;"></i><hr>Cartão CNPJ</label></a>
+                                                    <a href='${path}/${entidade.documentosEntidade.urlCartaoCnpj}' target="_blank" title="CLIQUE PARA VISUALIZAR O DOCUMENTO"><label for="cartao-cnpj"><i class="far fa-credit-card" style="font-size: 78px;"></i><hr>Cartão CNPJ</label></a>
                                                 </center>
                                             </div>
                                         </div>
                                         <div class="row">                                       
                                             <div class="col-md-6 margin-25">
                                                 <center>
-                                                    <a href='${path}/${conselho.documentosEntidade.urlAtaEleicao}' target="_blank" title="CLIQUE PARA VISUALIZAR O DOCUMENTO"><label for="ata-eleicao"><i class="fab fa-elementor" style="font-size: 78px;"></i><hr>Ata de Eleição</label></a>
+                                                    <a href='${path}/${entidade.documentosEntidade.urlAtaEleicao}' target="_blank" title="CLIQUE PARA VISUALIZAR O DOCUMENTO"><label for="ata-eleicao"><i class="fab fa-elementor" style="font-size: 78px;"></i><hr>Ata de Eleição</label></a>
                                                 </center>
                                             </div>
                                             <div class="col-md-6 margin-25">
                                                 <center>
-                                                    <a href='${path}/${conselho.documentosEntidade.urlDocumentoPresidente}' target="_blank" title="CLIQUE PARA VISUALIZAR O DOCUMENTO"><label for="documento-presidente"><i class="far fa-address-card" style="font-size: 78px;"></i><hr>CPF do Presidente:</label></a>
+                                                    <a href='${path}/${entidade.documentosEntidade.urlDocumentoPresidente}' target="_blank" title="CLIQUE PARA VISUALIZAR O DOCUMENTO"><label for="documento-presidente"><i class="far fa-address-card" style="font-size: 78px;"></i><hr>CPF do Presidente:</label></a>
                                                 </center>
                                             </div>
                                         </div>  
@@ -212,7 +212,7 @@
                     </div>
                 </div> <!-- /. ROW  -->
                     
-                <c:import url="../footer/footer.jsp" />
+                <c:import url="/WEB-INF/views/footer/footer.jsp" />
 
             </div> <!-- /. PAGE INNER  -->
         </div> <!-- /. PAGE WRAPPER  -->

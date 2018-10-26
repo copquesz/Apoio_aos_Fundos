@@ -22,9 +22,9 @@
     <div id="wrapper">
 
         <!-- Import Menu -->
-        <c:import url="../menu/menu-usuario.jsp" />
-        <c:import url="../modals/modal-meus-registros.jsp" />
-        <c:import url="../modals/modal-selecione-tipo-fundo.jsp" />
+        <c:import url="/WEB-INF/views/menu/menu-usuario.jsp" />
+        <c:import url="/WEB-INF/views/modals/modal-meus-registros.jsp" />
+        <c:import url="/WEB-INF/views/modals/modal-selecione-tipo-fundo.jsp" />
 
         <div id="page-wrapper" >
             <div id="page-inner">
@@ -123,7 +123,7 @@
                     
                 </div> <!-- /. ROW PANEL  -->
                                     
-                <c:import url="../footer/footer.jsp" />
+                <c:import url="/WEB-INF/views/footer/footer.jsp" />
 
             </div> <!-- /. PAGE INNER  -->
         </div> <!-- /. PAGE WRAPPER  -->

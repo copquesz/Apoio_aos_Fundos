@@ -64,7 +64,7 @@ public class EntidadeController {
 		String path = request.getContextPath();
 		model.addAttribute("path", path);
 
-		if (es.isCadastrado(entidade.getCnpj())) {
+		if (!es.isCadastrado(entidade.getCnpj())) {
 			usuario = (Usuario) request.getSession().getAttribute("usuario");
 			usuario = us.carregar(usuario.getId());
 
@@ -95,12 +95,14 @@ public class EntidadeController {
 
 			// Atualiza as URL dos documentos que foram feito upload no Banco de Dados.
 			entidade = es.atualizar(entidade);
+
+			model.addAttribute("cnpjCadastrado", false);
+			return "sucesso/sucesso-cadastro-entidade";
+
 		} else {
 			model.addAttribute("cnpjCadastrado", true);
 			return "painel-usuario/cadastro-entidade";
 		}
-
-		return "sucesso/sucesso-cadastro-entidade";
 	}
 
 	@RequestMapping(value = "/painel/entidade/visualizar/{id}", method = RequestMethod.GET)

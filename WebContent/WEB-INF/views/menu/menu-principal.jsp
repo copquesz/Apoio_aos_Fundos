@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<c:import url="../modals/modal-proposta-entidade-fundo.jsp" />
+<c:import url="/WEB-INF/views/modals/modal-proposta-entidade-fundo.jsp" />
 
 <nav class="navbar navbar-default top-navbar" role="navigation">
             <div class="navbar-header">

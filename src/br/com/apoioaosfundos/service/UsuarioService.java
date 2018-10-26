@@ -21,6 +21,10 @@ public class UsuarioService {
 		return dao.adicionar(usuario);
 	}
 	
+	public Usuario atualizar(Usuario usuario) {
+		return dao.atualizar(usuario);
+	}
+	
 	public Usuario carregar(Long id) {
 		return dao.carregar(id);
 	}

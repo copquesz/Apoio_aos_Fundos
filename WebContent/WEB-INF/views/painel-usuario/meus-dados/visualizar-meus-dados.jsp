@@ -22,7 +22,7 @@
     <div id="wrapper">
 
         <!-- Import Menu -->
-        <c:import url="../menu/menu-usuario.jsp" />
+        <c:import url="/WEB-INF/views/menu/menu-usuario.jsp" />
 
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >

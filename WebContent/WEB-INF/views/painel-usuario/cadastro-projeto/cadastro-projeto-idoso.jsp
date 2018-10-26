@@ -22,13 +22,13 @@
     <div id="wrapper">
         
         <!-- Import Menu -->
-        <c:import url="../menu/menu-usuario.jsp" />
+        <c:import url="/WEB-INF/views/menu/menu-usuario.jsp" />
 
         <!-- Import Modal File Validator -->
-        <c:import url="../modals/modal-arquivo-aceito.jsp" />
-        <c:import url="../modals/modal-arquivo-recusado-all.jsp" />
-        <c:import url="../modals/modal-arquivo-recusado-img.jsp" />
-        <c:import url="../modals/modal-arquivo-recusado-pdf.jsp" />
+        <c:import url="/WEB-INF/views/modals/modal-arquivo-aceito.jsp" />
+        <c:import url="/WEB-INF/views/modals/modal-arquivo-recusado-all.jsp" />
+        <c:import url="/WEB-INF/views/modals/modal-arquivo-recusado-img.jsp" />
+        <c:import url="/WEB-INF/views/modals/modal-arquivo-recusado-pdf.jsp" />
 
         <div id="page-wrapper" >
             <div id="page-inner">
@@ -95,19 +95,19 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Nome do Projeto: <span class="input-required">*</span></label>
-                                                        <input type="text" class="form-control" name="nomeProjeto" required>
+                                                        <input type="text" class="form-control" name="nomeProjeto">
                                                     </div>
                                                 </div>      
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>Valor do Projeto: <span class="input-required">*</span></label>
-                                                        <input type="text" class="form-control" id="valorProjeto" name="valorProjeto" required>                                     
+                                                        <input type="text" class="form-control" id="valorProjeto" name="valorProjeto">                                     
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>Valor Solicitado: <span class="input-required">*</span></label>
-                                                        <input type="text" class="form-control" id="valorSolicitado" name="valorSolicitado" required>                                     
+                                                        <input type="text" class="form-control" id="valorSolicitado" name="valorSolicitado">                                     
                                                     </div>
                                                 </div>                                                  
                                             </div>
@@ -115,19 +115,19 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label>Qtd. Beneficiários Direto: <span class="input-required">*</span></label>
-                                                        <input type="number" class="form-control" name="beneficiariosDireto" required>                                     
+                                                        <input type="number" class="form-control" name="beneficiariosDireto">                                     
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label>Qtd. Beneficiários Indireto: <span class="input-required">*</span></label>
-                                                        <input type="number" class="form-control" name="beneficiariosIndireto" required>                                     
+                                                        <input type="number" class="form-control" name="beneficiariosIndireto">                                     
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label>Qtd. Profissionais Envolvidos: <span class="input-required">*</span></label>
-                                                        <input type="number" class="form-control" name="profissionaisEnvolvidos" required>                                     
+                                                        <input type="number" class="form-control" name="profissionaisEnvolvidos">                                     
                                                     </div>
                                                 </div>
                                             </div>
@@ -140,37 +140,37 @@
                                                             <div class="col-md-6">
                                                                 <div class="checkbox">
                                                                     <label>
-                                                                        <input type="checkbox" name="questionary.violation" value="Abuso Sexual">Abuso Sexual
+                                                                        <input type="checkbox" name="multiplaEscolha.violacao" value="Abuso Financeiro">Abuso Financeiro
                                                                     </label>
                                                                 </div> 
                                                                 <div class="checkbox">
                                                                     <label>
-                                                                        <input type="checkbox" name="questionary.violation" value="Agressão Física">Agressão Física
+                                                                        <input type="checkbox" name="questionary.violacao" value="Falta de Acesso a Cuidados Especiais">Falta de Acesso a Cuidados Especiais
                                                                     </label>
                                                                 </div>
                                                                 <div class="checkbox">
                                                                     <label>
-                                                                        <input type="checkbox" name="questionary.violation" value="Menores Infratores ">Menores Infratores 
+                                                                        <input type="checkbox" name="questionary.violacao" value="Falta de Moradia Segura">Falta de Moradia Segura
                                                                     </label>
                                                                 </div>
                                                                 <div class="checkbox">
                                                                     <label>
-                                                                        <input type="checkbox" name="questionary.violation" value="Negligência/Abandono">Negligência/Abandono
+                                                                        <input type="checkbox" name="questionary.violacao" value="Negligência/Abandono">Negligência/Abandono
                                                                     </label>
                                                                 </div>
                                                                 <div class="checkbox">
                                                                     <label>
-                                                                        <input type="checkbox" name="questionary.violation" value="Trabalho Infantil">Trabalho Infantil
+                                                                        <input type="checkbox" name="questionary.violacao" value="Violência Doméstica">Violência Doméstica
                                                                     </label>
                                                                 </div>
                                                                 <div class="checkbox">
                                                                     <label>
-                                                                        <input type="checkbox" name="questionary.violation" value="Uso de Drogas">Uso de Drogas
+                                                                        <input type="checkbox" name="questionary.violacao" value="Violência Psicológica">Violência Psicológica
                                                                     </label>
                                                                 </div>
                                                                 <div class="checkbox">
                                                                     <label>
-                                                                        <input type="checkbox" name="questionary.violation" value="Vulnerabilidade Social">Vulnerabilidade Social
+                                                                        <input type="checkbox" name="questionary.violacao" value="Vulnerabilidade Social">Vulnerabilidade Social
                                                                     </label>
                                                                 </div>
                                                             </div>
@@ -186,35 +186,35 @@
                                                             <div class="col-md-6">
                                                                 <div class="checkbox">
                                                                     <label>
-                                                                        <input type="checkbox" name="questionary.beneficiarieAccess" value="Comunicação">Comunicação
+                                                                        <input type="checkbox" name="multiplaEscolha.beneficio" value="Comunicação">Comunicação
                                                                     </label>
                                                                 </div>                                                                        
                                                                 <div class="checkbox">
                                                                     <label>
-                                                                        <input type="checkbox" name="questionary.beneficiarieAccess" value="Desenvolvimento de Tecnologia para Gestão">Desenvolvimento de Tecnologia para Gestão
+                                                                        <input type="checkbox" name="multiplaEscolha.beneficio" value="Desenvolvimento de Tecnologia para Gestão">Desenvolvimento de Tecnologia para Gestão
                                                                     </label>
                                                                 </div>
                                                                 <div class="checkbox">
                                                                     <label>
-                                                                        <input type="checkbox" name="questionary.beneficiarieAccess" value="Empreendedorismo">Empreendedorismo
+                                                                        <input type="checkbox" name="multiplaEscolha.beneficio" value="Empreendedorismo">Empreendedorismo
                                                                     </label>
                                                                 </div>
 
                                                                 <div class="checkbox">
                                                                     <label>
-                                                                        <input type="checkbox" name="questionary.beneficiarieAccess" value="Formação Profissional">Formação Profissional
+                                                                        <input type="checkbox" name="multiplaEscolha.beneficio" value="Formação Profissional">Formação Profissional
                                                                     </label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">                                                                        
                                                                 <div class="checkbox">
                                                                     <label>
-                                                                        <input type="checkbox" name="questionary.beneficiarieAccess" value="Tecnologia Digital">Tecnologia Digital
+                                                                        <input type="checkbox" name="multiplaEscolha.beneficio" value="Tecnologia Digital">Tecnologia Digital
                                                                     </label>
                                                                 </div>                                                                        
                                                                 <div class="checkbox">
                                                                     <label>
-                                                                        <input type="checkbox" name="questionary.beneficiarieAccess" value="Inovação Educativa">Inovação Educativa
+                                                                        <input type="checkbox" name="multiplaEscolha.beneficio" value="Inovação Educativa">Inovação Educativa
                                                                     </label>
                                                                 </div>
                                                             </div>
@@ -226,27 +226,27 @@
                                                 <div class="col-md-12">
                                                     <div class="form-group">                                                                
                                                         <label>1) Apresente o contexto social onde o projeto será executado: <span class="input-required">*</span> <a href="#" data-toggle="tooltip" data-placement="right" data-html="true" title="Neste item deve-se apresentar brevemente o contexto no qual o projeto será aplicado."><i class="fas fa-info-circle"></i></a></label>
-                                                        <textarea class="form-control" rows="4" id="q1" name="questionary.questionOne" required maxlength="1500" onkeyup="limite_q1(this.value)"></textarea> 
+                                                        <textarea class="form-control" rows="4" id="q1" name="dissertativas.contextoSocial" maxlength="1500" onkeyup="limite_q1(this.value)"></textarea> 
                                                         <small><span id="cont-q1" style="color: red">1500</span>  Caracteres Restantes.</small>                                   
                                                     </div>
                                                     <div class="form-group">
                                                         <label>2) Justifique a proposta: <span class="input-required">*</span> <a href="#" data-toggle="tooltip" data-placement="right" data-html="true" title="Apresente as justificativas para esta proposta a luz do diagnóstico e informações disponibilizadas no item 1."><i class="fas fa-info-circle"></i></a></label>
-                                                        <textarea class="form-control" rows="4" id="q2" name="questionary.questionTwo" required maxlength="1500" onkeyup="limite_q2(this.value)"></textarea>    
+                                                        <textarea class="form-control" rows="4" id="q2" name="dissertativas.justificativa" maxlength="1500" onkeyup="limite_q2(this.value)"></textarea>    
                                                         <small><span id="cont-q2" style="color: red">1500</span>  Caracteres Restantes.</small>
                                                     </div>
                                                     <div class="form-group">
                                                         <label>3) Objetivo geral: <span class="input-required">*</span> <a href="#" data-toggle="tooltip" data-placement="right" data-html="true" title="Refere-se ao objetivo direto do projeto, o qual deve contribuir para a mudança da realidade descrita no item 1."><i class="fas fa-info-circle"></i></a></label>
-                                                        <textarea class="form-control" rows="4" id="q3" name="questionary.questionThree" required maxlength="1500" onkeyup="limite_q3(this.value)"></textarea> 
+                                                        <textarea class="form-control" rows="4" id="q3" name="dissertativas.objetivoGeral" maxlength="1500" onkeyup="limite_q3(this.value)"></textarea> 
                                                         <small><span id="cont-q3" style="color: red">1500</span>  Caracteres Restantes.</small>                                   
                                                     </div>
                                                     <div class="form-group">
                                                         <label>4) Objetivos específicos: <span class="input-required">*</span> <a href="#" data-toggle="tooltip" data-placement="right" data-html="true" title="São os objetivos detalhados, que devem ser alcançados para que o objetivo geral seja contemplado. Eles devem ter relação direta com as metas e indicadores do projeto. Especifique-os."><i class="fas fa-info-circle"></i></a></label>
-                                                        <textarea class="form-control" rows="4" id="q4" name="questionary.questionFour" required maxlength="1500" onkeyup="limite_q4(this.value)"></textarea> 
+                                                        <textarea class="form-control" rows="4" id="q4" name="dissertativas.objetivoEspecifico" maxlength="1500" onkeyup="limite_q4(this.value)"></textarea> 
                                                         <small><span id="cont-q4" style="color: red">1500</span>  Caracteres Restantes.</small>                                   
                                                     </div>
                                                     <div class="form-group">
                                                         <label>5) Resultados esperados: <span class="input-required">*</span> <a href="#" data-toggle="tooltip" data-placement="right" data-html="true" title="Os resultados esperados são as transformações decorrentes da realização da proposta, o que de bom será alcançado com o projeto."><i class="fas fa-info-circle"></i></a></label>
-                                                        <textarea class="form-control" rows="6" id="q5" name="questionary.questionFive" required maxlength="1500" onkeyup="limite_q5(this.value)"></textarea>
+                                                        <textarea class="form-control" rows="6" id="q5" name="dissertativas.resultadosEsperados" maxlength="1500" onkeyup="limite_q5(this.value)"></textarea>
                                                         <small><span id="cont-q5" style="color: red">1500</span>  Caracteres Restantes.</small>                                    
                                                     </div>
                                                     <div class="form-group">
@@ -256,11 +256,40 @@
                                                                 <tbody>                                       
                                                                       <div>
                                                                         <tr>
-                                                                            <td><textarea class="form-control" rows="4" name="questionary.indicator[0].goal" placeholder="Meta" required></textarea></td>
-                                                                            <td><textarea class="form-control" rows="4" name="questionary.indicator[0].indicator" placeholder="Indicador" required></textarea></td>
-                                                                            <td><textarea class="form-control" rows="4" name="questionary.indicator[0].meansOfVerification" placeholder="Meio de Verificação" required></textarea></td>
+                                                                            <td><textarea class="form-control" rows="4" name="metasIndicadores[0].meta" placeholder="Meta" required></textarea></td>
+                                                                            <td><textarea class="form-control" rows="4" name="metasIndicadores[0].indicador" placeholder="Indicador" required ></textarea></td>
+                                                                            <td><textarea class="form-control" rows="4" name="metasIndicadores[0].meioVerificacao" placeholder="Meio de Verificação" required></textarea></td>
                                                                             <td>
-                                                                                <select class="form-control" name="questionary.indicator[0].periodOfVerification">
+                                                                                <select class="form-control" name="metasIndicadores[0].periodicidade">
+                                                                                <option value="Não Informado">Selecione um Período</option>
+                                                                                <option value="Quinzenal">Quinzenal</option>
+                                                                                <option value="Mensal">Mensal</option>
+                                                                                <option value="Semestral">Semestral</option>
+                                                                                <option value="Anual">Anual</option>
+                                                                                </select>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td><textarea class="form-control" rows="4" name="metasIndicadores.meta" placeholder="Meta" ></textarea></td>
+                                                                            <td><textarea class="form-control" rows="4" name="metasIndicadores[1].indicador" placeholder="Indicador" ></textarea></td>
+                                                                            <td><textarea class="form-control" rows="4" name="metasIndicadores[1].meioVerificacao" placeholder="Meio de Verificação" ></textarea></td>
+                                                                            <td>
+                                                                                <select class="form-control" name="metasIndicadores[1].periodicidade">
+                                                                                <option value="">Selecione um Período</option>
+                                                                                <option value="Quinzenal">Quinzenal</option>
+                                                                                <option value="Mensal">Mensal</option>
+                                                                                <option value="Semestral">Semestral</option>
+                                                                                <option value="Anual">Anual</option>
+                                                                                </select>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td><textarea class="form-control" rows="4" name="metasIndicadores[1].meta" placeholder="Meta" ></textarea></td>
+                                                                            <td><textarea class="form-control" rows="4" name="metasIndicadores[1].indicador" placeholder="Indicador" ></textarea></td>
+                                                                            <td><textarea class="form-control" rows="4" name="metasIndicadores[1].meioVerificacao" placeholder="Meio de Verificação" ></textarea></td>
+                                                                            <td>
+                                                                                <select class="form-control" name="metasIndicadores[1].periodicidade">
+                                                                                <option value="">Selecione um Período</option>
                                                                                 <option value="Quinzenal">Quinzenal</option>
                                                                                 <option value="Mensal">Mensal</option>
                                                                                 <option value="Semestral">Semestral</option>
@@ -270,12 +299,8 @@
                                                                         </tr>
                                                                       </div>                                               
                                                                 </tbody>
-                                                            </table>                                                                    
-                                                        </div>
-                                                        <div class="input_dynamic"></div>
-                                                        <div>
-                                                            <button class="add_input_dynamic btn btn-primary"><i class="fas fa-plus-circle"></i> Incluir</button>
-                                                        </div>                                 
+                                                            </table>                                                        
+                                                        </div>         
                                                     </div>
                                                     <div class="form-group">
                                                         <label>7) Estratégias de comunicação/visibilidade: <a href="#" data-toggle="tooltip" data-placement="right" data-html="true" title="Ações de comunicação são importantes tanto para a informação e conscientização da sociedade civil em relação a violação de direitos, quanto para a divulgação dos resultados. Cabe destacar, que todas as iniciativas de comunicação devem conter a marca do Conselho, organização social e da empresa apoiadora."><i class="fas fa-info-circle"></i></a></label>
@@ -286,32 +311,32 @@
 
                                                                 <div class="checkbox">
                                                                     <label>
-                                                                        <input type="checkbox" name="questionary.strategyOsc" value="Assessoria de imprensa">Assessoria de imprensa 
+                                                                        <input type="checkbox" name="multiplaEscolha.estrategiaEntidade" value="Assessoria de imprensa">Assessoria de imprensa 
                                                                     </label>
                                                                 </div>    
                                                                 <div class="checkbox">
                                                                     <label>
-                                                                        <input type="checkbox" name="questionary.strategyOsc" value="Divulgação frequente das ações do projeto em mídias sociais">Divulgação frequente das ações do projeto em mídias sociais
+                                                                        <input type="checkbox" name="multiplaEscolha.estrategiaEntidade" value="Divulgação frequente das ações do projeto em mídias sociais">Divulgação frequente das ações do projeto em mídias sociais
                                                                     </label>
                                                                 </div>                                                                        
                                                                 <div class="checkbox">
                                                                     <label>
-                                                                        <input type="checkbox" name="questionary.strategyOsc" value="Evento de lançamento">Evento de lançamento
+                                                                        <input type="checkbox" name="multiplaEscolha.estrategiaEntidade" value="Evento de lançamento">Evento de lançamento
                                                                     </label>
                                                                 </div>                                                                        
                                                                 <div class="checkbox">
                                                                     <label>
-                                                                        <input type="checkbox" name="questionary.strategyOsc" value="Fotos e boletins mensais de notícias do projeto">Fotos e boletins mensais de notícias do projeto
+                                                                        <input type="checkbox" name="multiplaEscolha.estrategiaEntidade" value="Fotos e boletins mensais de notícias do projeto">Fotos e boletins mensais de notícias do projeto
                                                                     </label>
                                                                 </div>
                                                                 <div class="checkbox">
                                                                     <label>
-                                                                        <input type="checkbox" name="questionary.strategyOsc" value="Produção de camisetas para os beneficiários">Produção de camisetas para os beneficiários
+                                                                        <input type="checkbox" name="multiplaEscolha.estrategiaEntidade" value="Produção de camisetas para os beneficiários">Produção de camisetas para os beneficiários
                                                                     </label>
                                                                 </div>
                                                                 <div class="checkbox">
                                                                     <label>
-                                                                        <input type="checkbox" name="questionary.strategyOsc" value="Vídeo institucional do projeto">Vídeo institucional do projeto
+                                                                        <input type="checkbox" name="multiplaEscolha.estrategiaEntidade" value="Vídeo institucional do projeto">Vídeo institucional do projeto
                                                                     </label>
                                                                 </div>                                                                        
                                                             </div>
@@ -320,22 +345,22 @@
                                                                 <b>CONSELHO DOS DIREITOS</b>                                                                        
                                                                 <div class="checkbox">
                                                                     <label>
-                                                                        <input type="checkbox" name="questionary.strategyFund" value="Assessoria de imprensa ">Assessoria de imprensa 
+                                                                        <input type="checkbox" name="multiplaEscolha.estrategiaConselho" value="Assessoria de imprensa ">Assessoria de imprensa 
                                                                     </label>
                                                                 </div>
                                                                 <div class="checkbox">
                                                                     <label>
-                                                                        <input type="checkbox" name="questionary.strategyFund" value="Comunicado assinado pelo Presidente do Conselho para todas as Secretarias.">Comunicado assinado pelo Presidente do Conselho para todas as Secretarias.
+                                                                        <input type="checkbox" name="multiplaEscolha.estrategiaConselho" value="Comunicado assinado pelo Presidente do Conselho para todas as Secretarias.">Comunicado assinado pelo Presidente do Conselho para todas as Secretarias.
                                                                     </label>
                                                                 </div>
                                                                 <div class="checkbox">
                                                                     <label>
-                                                                        <input type="checkbox" name="questionary.strategyFund" value="Divulgação da parceria aos veículos de comunicação da cidade (rádios, jornais) ">Divulgação da parceria aos veículos de comunicação da cidade (rádios, jornais) 
+                                                                        <input type="checkbox" name="multiplaEscolha.estrategiaConselho" value="Divulgação da parceria aos veículos de comunicação da cidade (rádios, jornais) ">Divulgação da parceria aos veículos de comunicação da cidade (rádios, jornais) 
                                                                     </label>
                                                                 </div>
                                                                 <div class="checkbox">
                                                                     <label>
-                                                                        <input type="checkbox" name="questionary.strategyFund" value="Divulgação da parceria nas mídias sociais do Conselho">Divulgação da parceria nas mídias sociais do Conselho
+                                                                        <input type="checkbox" name="multiplaEscolha.estrategiaConselho" value="Divulgação da parceria nas mídias sociais do Conselho">Divulgação da parceria nas mídias sociais do Conselho
                                                                     </label>
                                                                 </div>
                                                             </div>
@@ -343,7 +368,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label>8) Comentários Finais: <a href="#" data-toggle="tooltip" data-placement="right" data-html="true" title="Nesta sessão é possível esclarecer ou apontar informações relevantes para a implementação do projeto."><i class="fas fa-info-circle"></i></a></label>
-                                                        <textarea class="form-control" rows="6" id="q8" name="questionary.questionEight" maxlength="1500" onkeyup="limite_q8(this.value)"></textarea>  
+                                                        <textarea class="form-control" rows="6" id="q8" name="dissertativas.comentariosFinais" maxlength="1500" onkeyup="limite_q8(this.value)"></textarea>  
                                                         <small><span id="cont-q8" style="color: red">1500</span>  Caracteres Restantes.</small>
                                                     </div>
                                                 </div>
@@ -356,23 +381,23 @@
                                             <div class="row">
                                                 <div class="col-md-4 margin-25">
                                                     <center>
-                                                        <label for="fileImage"><i class="far fa-image" style="font-size: 78px;"></i><hr>Foto/Logo da Proposta: <span class="input-required">*</span></label>
+                                                        <label for="imagem"><i class="far fa-image" style="font-size: 78px;"></i><hr>Foto/Logo da Proposta: <span class="input-required">*</span></label>
                                                         <br><small>Formatos aceitos: <b style="color: red;">jpg, jpeg, png, bmp.</b></small>
-                                                        <input type="file" class="form-control" name="fileImage" id="fileImage" required onchange="validaImg(this, this.id)">
+                                                        <input type="file" class="form-control" name="documentosProjeto.imagem" id="imagem" onchange="validaImg(this, this.id)" required>
                                                     </center>
                                                 </div>
                                                 <div class="col-md-4 margin-25">
                                                     <center>
-                                                        <label for="fileOffer"><i class="far fa-file-alt" style="font-size: 78px;"></i><hr>Proposta Técnica Orçamentária Completa: <span class="input-required">*</span></label>
+                                                        <label for="proposta"><i class="far fa-file-alt" style="font-size: 78px;"></i><hr>Proposta Técnica Orçamentária Completa: <span class="input-required">*</span></label>
                                                         <br><small>Formatos aceitos: <b style="color: red;">pdf.</b></small>
-                                                        <input type="file" class="form-control" name="fileOffer" id="fileOffer" required onchange="validaPdf(this, this.id)">
+                                                        <input type="file" class="form-control" name="documentosProjeto.proposta" id="proposta" onchange="validaPdf(this, this.id)" required>
                                                     </center>
                                                 </div>
                                                 <div class="col-md-4 margin-25">
                                                     <center>
-                                                        <label for="fileCertificate"><i class="fas fa-certificate" style="font-size: 78px;"></i><hr>Diário Oficial/Certificado de Captação: <span class="input-required">*</span></label>
+                                                        <label for="certificado"><i class="fas fa-certificate" style="font-size: 78px;"></i><hr>Diário Oficial/Certificado de Captação: <span class="input-required">*</span></label>
                                                         <br><small>Formatos aceitos: <b style="color: red;">pdf, jpg, jpeg, png, bmp.</b></small>
-                                                        <input type="file" class="form-control" name="fileCertificate" id="fileCertificate" required onchange="validaImgPdf(this, this.id)">
+                                                        <input type="file" class="form-control" name="documentosProjeto.certificado" id="certificado" onchange="validaImgPdf(this, this.id)" required>
                                                     </center>
                                                 </div>
                                             </div>    
@@ -381,7 +406,7 @@
                                         <div style="margin-top: 30px;">
                                             <center>
                                                 <button type="submit" class="btn btn-primary">Enviar</button>
-                                                <a href="${path}/plataforma/painel/index" class="btn btn-danger" style="margin-left: 20px;">Voltar</a>
+                                                <a href="${path}/painel/index" class="btn btn-danger" style="margin-left: 20px;">Voltar</a>
                                             </center>
                                         </div>   
                                     </form>                                
@@ -391,7 +416,7 @@
                     </div> <!-- /. ROW  -->
                 </c:if>
                     
-                <c:import url="../footer/footer.jsp" />
+                <c:import url="/WEB-INF/views/footer/footer.jsp" />
 
             </div> <!-- /. PAGE INNER  -->
         </div> <!-- /. PAGE WRAPPER  -->
